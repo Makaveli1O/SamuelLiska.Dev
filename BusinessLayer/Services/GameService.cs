@@ -7,10 +7,10 @@ namespace BusinessLayer.Services;
 
 public class GameService : IGameService
 {
-    private readonly IGameRepository _repository;
+    private readonly IGenericRepository<GameModel> _repository;
     private readonly IMapper _mapper;
 
-    public GameService(IGameRepository repository, IMapper mapper)
+    public GameService(IGenericRepository<GameModel> repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
