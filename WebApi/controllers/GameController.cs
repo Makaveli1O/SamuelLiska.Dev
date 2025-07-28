@@ -1,8 +1,8 @@
 using Domain.Entities;
 using BusinessLayer.Dto.Game;
-using Infrastructure.Repository;
+using BusinessLayer.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace WebApi.Controllers
 {
@@ -11,9 +11,9 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class GameController : ControllerBase
     {
-        private readonly IGameRepository _service;
+        private readonly IGameService _service;
 
-        public GameController(IGameRepository service)
+        public GameController(IGameService service)
         {
             _service = service;
         }
@@ -44,21 +44,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(GameViewDto dto)
+        public async Task<IActionResult> Create(GameCreateDto dto)
         {
-            var game = new Game
-            {
-                Id = 1,
-                Title = dto.Title,
-                Slug = dto.Slug,
-                Description = dto.Description,
-                WebGLPath = dto.WebGLPath,
-                CoverImagePath = dto.CoverImagePath
-            };
 
-            await _service.AddAsync(game);
+            GameViewDto viewDto = await _service.CreateAsync(dto);
 
-            return CreatedAtAction(nameof(GetById), new { id = game.Id }, game);
+            return CreatedAtAction(nameof(GetById), new { id = viewDto.Id }, viewDto);
         }
 
         [HttpPut("{id:int}")]
