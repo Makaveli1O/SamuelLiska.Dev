@@ -1,10 +1,11 @@
 using DataAccess.Db;
-using DataAccess.Repository;
 using Infrastructure.Repository;
 using BusinessLayer.Services;
 using Microsoft.EntityFrameworkCore;
 using BusinessLayer.Mapping;
+using Infrastructure.UnitOfWork;
 using AutoMapper;
+using Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +18,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddScoped<IGameRepository, GameRepository>();
+builder.Services.AddScoped<IGenericRepository<Game>, GenericRepository<Game>>();
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddAutoMapper(typeof(GameMappingProfile).Assembly);
+builder.Services.AddScoped<UnitOfWork>();
 
 
 var app = builder.Build();
