@@ -1,6 +1,7 @@
 using DataAccess.Db;
 using DataAccess.Repository;
 using Infrastructure.Repository;
+using BusinessLayer.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IGameRepository, GameRepository>();
+builder.Services.AddScoped<IGameService, GameService>();
 
 
 var app = builder.Build();
