@@ -26,11 +26,10 @@ public class GameService : IGameService
         return game == null ? null : MapToDto(game);
     }
 
-    public async Task<GameViewDto> CreateAsync(GameViewDto dto)
+    public async Task<GameViewDto> CreateAsync(GameCreateDto dto)
     {
         Validate(dto);
-
-        var game = new GameModel
+        GameModel game = new GameModel
         {
             Title = dto.Title,
             Slug = dto.Slug,
@@ -40,8 +39,17 @@ public class GameService : IGameService
         };
 
         await _repository.AddAsync(game);
-        dto.Id = game.Id;
-        return dto;
+        
+
+        return new GameViewDto
+        {
+            Id = game.Id,
+            Title = game.Title,
+            Slug = game.Slug,
+            Description = game.Description,
+            WebGLPath = game.WebGLPath,
+            CoverImagePath = game.CoverImagePath
+        };
     }
 
     public async Task UpdateAsync(GameViewDto dto)
@@ -65,12 +73,21 @@ public class GameService : IGameService
         await _repository.DeleteAsync(id);
     }
 
-    private static void Validate(GameViewDto dto)
+    private static void Validate(GameCreateDto gameModel)
     {
-        if (string.IsNullOrWhiteSpace(dto.Title))
+        if (string.IsNullOrWhiteSpace(gameModel.Title))
             throw new ArgumentException("Title is required");
 
-        if (string.IsNullOrWhiteSpace(dto.Slug))
+        if (string.IsNullOrWhiteSpace(gameModel.Slug))
+            throw new ArgumentException("Slug is required");
+    }
+
+    private static void Validate(GameViewDto gameModel)
+    {
+        if (string.IsNullOrWhiteSpace(gameModel.Title))
+            throw new ArgumentException("Title is required");
+
+        if (string.IsNullOrWhiteSpace(gameModel.Slug))
             throw new ArgumentException("Slug is required");
     }
 

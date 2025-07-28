@@ -6,7 +6,7 @@ public interface IGameService
 {
     Task<IEnumerable<GameViewDto>> GetAllAsync();
     Task<GameViewDto?> GetByIdAsync(uint id);
-    Task<GameViewDto> CreateAsync(GameViewDto dto);
+    Task<GameViewDto> CreateAsync(GameCreateDto dto);
     Task UpdateAsync(GameViewDto dto);
     Task DeleteAsync(uint id);
 }
