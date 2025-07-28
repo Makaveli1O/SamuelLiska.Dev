@@ -1,9 +1,9 @@
-using BusinessLayer.Interfaces;
 using DataAccess.Db;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.Repository;
 
-namespace DataAccess.Repositories;
+namespace DataAccess.Repository;
 
 public class GameRepository : IGameRepository
 {

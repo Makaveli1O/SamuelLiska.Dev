@@ -1,5 +1,5 @@
 using Domain.Entities;
-namespace BusinessLayer.Interfaces;
+namespace Infrastructure.Repository;
 
 public interface IGameRepository
 {
