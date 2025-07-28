@@ -1,5 +1,5 @@
-namespace BusinessLayer.Dto;
-public class Game
+namespace BusinessLayer.Dto.Game;
+public class GameViewDto
 {
     public uint Id { get; set; }
     public string Title { get; set; } = string.Empty;

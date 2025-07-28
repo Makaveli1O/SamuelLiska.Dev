@@ -1,7 +1,7 @@
-using BusinessLayer.Interfaces;
 using DataAccess.Db;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using BusinessLayer.Services;
 
 namespace DataAccess.Repositories;
 
