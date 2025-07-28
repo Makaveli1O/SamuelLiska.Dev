@@ -1,6 +1,6 @@
 using DataAccess.Db;
-using BusinessLayer.Services;
-using DataAccess.Repositories;
+using DataAccess.Repository;
+using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

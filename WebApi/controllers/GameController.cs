@@ -1,6 +1,6 @@
-using BusinessLayer.Services;
 using Domain.Entities;
 using BusinessLayer.Dto.Game;
+using Infrastructure.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
