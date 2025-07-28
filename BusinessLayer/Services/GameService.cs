@@ -1,16 +1,19 @@
 using BusinessLayer.Dto.Game;
 using GameModel = Domain.Entities.Game;
 using Infrastructure.Repository;
+using AutoMapper;
 
 namespace BusinessLayer.Services;
 
 public class GameService : IGameService
 {
     private readonly IGameRepository _repository;
+    private readonly IMapper _mapper;
 
-    public GameService(IGameRepository repository)
+    public GameService(IGameRepository repository, IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<GameViewDto>> GetAllAsync()
@@ -29,27 +32,12 @@ public class GameService : IGameService
     public async Task<GameViewDto> CreateAsync(GameCreateDto dto)
     {
         Validate(dto);
-        GameModel game = new GameModel
-        {
-            Title = dto.Title,
-            Slug = dto.Slug,
-            Description = dto.Description,
-            WebGLPath = dto.WebGLPath,
-            CoverImagePath = dto.CoverImagePath
-        };
+
+        var game = _mapper.Map<GameModel>(dto);
 
         await _repository.AddAsync(game);
-        
 
-        return new GameViewDto
-        {
-            Id = game.Id,
-            Title = game.Title,
-            Slug = game.Slug,
-            Description = game.Description,
-            WebGLPath = game.WebGLPath,
-            CoverImagePath = game.CoverImagePath
-        };
+        return _mapper.Map<GameViewDto>(game);
     }
 
     public async Task UpdateAsync(GameViewDto dto)

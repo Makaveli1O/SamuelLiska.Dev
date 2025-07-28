@@ -3,6 +3,8 @@ using DataAccess.Repository;
 using Infrastructure.Repository;
 using BusinessLayer.Services;
 using Microsoft.EntityFrameworkCore;
+using BusinessLayer.Mapping;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddAutoMapper(typeof(GameMappingProfile).Assembly);
 
 
 var app = builder.Build();

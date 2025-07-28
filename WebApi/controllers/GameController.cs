@@ -47,16 +47,9 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Create(GameCreateDto dto)
         {
 
-            await _service.CreateAsync(dto);
+            GameViewDto viewDto = await _service.CreateAsync(dto);
 
-            return Ok(new GameCreateDto
-            {
-                Title = dto.Title,
-                Slug = dto.Slug,
-                Description = dto.Description,
-                WebGLPath = dto.WebGLPath,
-                CoverImagePath = dto.CoverImagePath
-            });
+            return CreatedAtAction(nameof(GetById), new { id = viewDto.Id }, viewDto);
         }
 
         [HttpPut("{id:int}")]
