@@ -141,6 +141,20 @@
             color: #ffd700;
             transform: translateY(-2px);
         }
+
+        /*FADEINS SECTION*/
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
     </style>
 </head>
 <body>
@@ -234,6 +248,23 @@
                 });
             }, { threshold: 0.1 });
             if (footer) observer.observe(footer);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target); // Animate once
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => observer.observe(section));
         });
     </script>
 

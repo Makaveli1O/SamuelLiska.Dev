@@ -2,82 +2,82 @@
     ViewData["Title"] = "About Me";
 }
 
-<div class="container mt-5">
+<div class="container py-5">
     <div class="text-center mb-5">
-        <h1>Hello, I'm Samuel Líška</h1>
-        <p class="lead">Software Developer specializing in PHP, C#/.NET, and Unity Game Development</p>
+        <h1 class="fw-bold display-5 text-primary">Hello, I'm Samuel Líška</h1>
+        <p class="lead text-secondary">Software Developer specializing in PHP, C#/.NET, and Unity Game Development</p>
     </div>
 
-    <div class="row mb-5">
-        <div class="col-md-6">
-            <h3>Professional Background</h3>
-            <p>
-                I’m an experienced backend developer worked primarily with PHP in enterprise environments, adhering strictly to SOLID principles, Domain-Driven Design, and Martin Fowler’s architectural patterns.
-                My day-to-day work involved maintaining and refactoring large-scale web applications, where clean architecture and long-term maintainability are essential.
+    <section class="py-5 fade-in-section">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4 text-primary">
+                <i class="bi bi-code-slash me-2"></i>Professional Background
+            </h2>
+            <p class="fs-5 mb-4">
+                I’m an experienced backend developer who has worked extensively with PHP in enterprise environments,
+                rigorously applying SOLID principles, Domain-Driven Design, and Martin Fowler’s architectural patterns.
             </p>
-            <p>
-                I also work with C#/.NET in both backend APIs and MVC projects, and I'm deeply familiar with layered architecture, dependency injection, and repository/unit-of-work patterns.
+            <p class="fs-5 mb-4">
+                I also work with C#/.NET on backend APIs and MVC apps, using layered architecture, dependency injection, and clean domain modeling practices.
             </p>
         </div>
-        <div class="col-md-6">
-            <h3>Active Stack</h3>
-            <ul>
+    </section>
+
+    <section class="py-5 fade-in-section bg-light">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4 text-dark">
+                <i class="bi bi-tools me-2"></i>Active Stack
+            </h2>
+            <ul class="fs-5">
                 <li>Backend: PHP, .NET 9 (C#)</li>
                 <li>Frontend: JavaScript, HTML, CSS, Razor</li>
                 <li>GameDev: Unity 2D</li>
-                <li>Persistence (Databases)<ul>
-                    <li>
-                        Relational
-                        <ul>
-                            <li>MySql</li>
-                            <li>MSSQL</li>
-                            <li>PostgreSQL (OLAP, Databases Warehouse snowflake/star)</li>
-                            <li>SQLite</li>
-                        </ul>
-                    </li>
-                    <li>
-                        NoSQL / Document
-                        <ul>
-                            <li>ElasticSearch</li>
-                        </ul>
-                    </li>
-                </ul> 
+                <li>Persistence:
+                    <ul>
+                        <li><strong>Relational:</strong> MySQL, MSSQL, PostgreSQL (OLAP, Snowflake/Star), SQLite</li>
+                        <li><strong>NoSQL:</strong> ElasticSearch</li>
+                    </ul>
+                </li>
             </ul>
         </div>
-    </div>
+    </section>
 
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <h3>Education</h3>
-            <p>
-                I earned my Bachelor's degree in Computer Science at <strong>FIT VUT</strong> (Brno University of Technology).
-                My bachelor’s thesis involved the development of a RPGs game with a procedurally generated elements using Unity Game engine. This project was presented at an exhibition in Brno that focused on raising awareness of student game development (https://hernikompas.cz/). 
+    <section class="py-5 fade-in-section">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4 text-dark">
+                <i class="bi bi-mortarboard-fill me-2"></i>Education
+            </h2>
+            <p class="fs-5">
+                Bachelor's in Computer Science – <strong>FIT VUT</strong>. My thesis was a procedurally generated RPG using Unity, presented at
+                <a href="https://hernikompas.cz/" target="_blank">Herni Kompas</a>.
                 <a href="https://www.fit.vut.cz/study/thesis/24680/.cs" target="_blank">View thesis</a>
             </p>
-            <p>
-                I continued with a Master's degree in the specialization <strong>Development and Design of Software Systems</strong> at <strong>FI MUNI</strong> (Masaryk University). My master's thesis focused on refactoring the internal chat module of the LiveAgent software, applying Domain-Driven Design and SOLID principles to modernize a critical legacy subsystem.
+            <p class="fs-5">
+                Master's in Software Systems – <strong>FI MUNI</strong>. My thesis modernized the chat module in LiveAgent using DDD and SOLID.
                 <a href="https://is.muni.cz/th/jxtmq/" target="_blank">View thesis</a>
             </p>
         </div>
-    </div>
+    </section>
 
-
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <h3>Game Development</h3>
-            <p>
-                In my free time, I explore game development using Unity. I focus on 2D mechanics and procedural content generation, building on my bachelor’s thesis about generating procedurally created RPGs. 
-                These projects allow me to work with Unity’s scripting, level generation algorithms, and performance tuning techniques.
-            </p>
-            <p>
-                I use this playground to apply clean architecture principles even in Unity contexts — implementing custom ECS patterns, behavior trees, and modular level systems.
+    <section class="py-5 fade-in-section bg-light">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4 text-dark">
+                <i class="bi bi-controller me-2"></i>Game Development
+            </h2>
+            <p class="fs-5">
+                In my free time, I work on Unity-based 2D games. I explore procedural level generation, ECS-like design, behavior trees, and performance optimization — all aligned with clean architecture.
             </p>
         </div>
-    </div>
+    </section>
 
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <h3>Personal Traits</h3>
-            <p>
-                I’m driven by software quality and maintainability. I value clear architecture, continuous learning, and practical use of theory. 
-                I enjoy taking
+    <section class="py-5 fade-in-section">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-4 text-dark">
+                <i class="bi bi-lightning-fill me-2"></i>Personal Traits
+            </h2>
+            <p class="fs-5">
+                I'm driven by software quality and long-term maintainability. I value clear architecture, practical application of theory, and continuous learning. I enjoy transforming legacy code into clean, testable systems.
+            </p>
+        </div>
+    </section>
+</div>
