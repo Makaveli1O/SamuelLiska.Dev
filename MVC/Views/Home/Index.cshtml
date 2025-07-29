@@ -2,23 +2,61 @@
     ViewData["Title"] = "About Me";
 }
 
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="fw-bold display-5 text-primary">Hello, I'm Samuel Líška</h1>
-        <p class="lead text-secondary">Software Developer specializing in PHP, C#/.NET, and Unity Game Development</p>
-    </div>
+<style>
 
+    .hero-section {
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    position: relative;
+    }
+
+    .hero-background {
+        position: absolute;
+        inset: 0;
+        background-image: url('/images/hero.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.6) blur(2px);
+        z-index: 1;
+    }
+
+    .hero-section .container {
+        z-index: 2;
+    }
+
+    .btn-light, .btn-outline-light {
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+    }
+
+</style>
+
+    <section class="hero-section position-relative text-white d-flex align-items-center justify-content-center">
+        <div class="hero-background"></div>
+        <div class="container position-relative z-2 text-center" data-aos="fade-up">
+            <h1 class="display-3 fw-bold mb-3">Hi, I'm Samuel Líška</h1>
+            <p class="lead mb-4">Software Engineer • Web Developer • Unity2D Enthusiast</p>
+            <div>
+                <a href="#projects" class="btn btn-light btn-lg me-3">See My Work</a>
+                <a href="mailto:samuel.liska49@gmail.com" class="btn btn-outline-light btn-lg">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+<div class="container py-5">
     <section class="py-5 fade-in-section">
         <div class="container">
             <h2 class="display-5 fw-bold mb-4 text-primary">
-                <i class="bi bi-code-slash me-2"></i>Professional Background
+                <i class="bi bi-code-slash me-2D"></i>Professional Background
             </h2>
             <p class="fs-5 mb-4">
                 I’m an experienced backend developer who has worked extensively with PHP in enterprise environments,
-                rigorously applying SOLID principles, Domain-Driven Design, and Martin Fowler’s architectural patterns.
+                clean code and clean architecture principles, Domain-Driven Design, and Martin Fowler’s architectural patterns.
             </p>
             <p class="fs-5 mb-4">
-                I also work with C#/.NET on backend APIs and MVC apps, using layered architecture, dependency injection, and clean domain modeling practices.
+                I also work with C#/.NET on backend APIs and MVC apps, onion architecture, dependency injection.
             </p>
         </div>
     </section>
