@@ -9,53 +9,123 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVC.styles.css" asp-append-version="true" />
     <style>
-        .navbar {
+        .custom-navbar {
+            background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            padding: 1rem 0;
             font-family: 'Inter', sans-serif;
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            transition: background-color 0.3s ease;
         }
-        .navbar-brand {
-            letter-spacing: 1px;
+
+        /* Brand */
+        .custom-navbar .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.75rem;
+            letter-spacing: 1.2px;
+            transition: transform 0.3s ease;
         }
-        .nav-link {
-            font-weight: 500;
-            transition: color 0.2s ease;
+        .custom-navbar .navbar-brand:hover {
+            transform: scale(1.05);
+            color: #ffd700;
         }
-        .nav-link:hover, .nav-link.active {
-            color: #0c4a6e !important;
+
+        /* Nav links */
+        .custom-navbar .nav-link {
+            color: #e0f7f9;
             font-weight: 600;
+            margin-left: 1.5rem;
+            position: relative;
+            padding-bottom: 0.25rem;
+            transition: color 0.3s ease;
         }
+        .custom-navbar .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+        .custom-navbar .nav-link:hover {
+            color: #ffd700;
+        }
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Active link styling */
+        .custom-navbar .nav-link.active {
+            color: #ffd700 !important;
+        }
+        .custom-navbar .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Navbar toggler for small screens */
+        .custom-navbar .navbar-toggler {
+            border: none;
+        }
+        .custom-navbar .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        .custom-navbar .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 576px) {
+            .custom-navbar .nav-link {
+                margin-left: 0;
+                margin-top: 0.75rem;
+            }
+            .custom-navbar .navbar-collapse {
+                background: linear-gradient(180deg, #007cf0 0%, #00dfd8 100%);
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light shadow-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold fs-4 text-primary" asp-area="" asp-controller="Home" asp-action="Index">
+        <nav class="navbar navbar-expand-sm custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     Samuel Líška
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" 
-                            asp-route-active="true">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
+                            <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                            <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
+                            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
