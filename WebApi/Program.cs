@@ -4,7 +4,6 @@ using BusinessLayer.Services;
 using Microsoft.EntityFrameworkCore;
 using BusinessLayer.Mapping;
 using Infrastructure.UnitOfWork;
-using AutoMapper;
 using Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
