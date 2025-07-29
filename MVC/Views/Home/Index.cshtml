@@ -1,19 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<BusinessLayer.Dto.Game.GameViewDto>
+
+@{
+    ViewData["Title"] = "Game Development";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="conatiner mt-5">
+    <h1>Me and Game develompent</h1>
+    <div class="row">
+        In my free time, I work on 2D projects using Unity, where I continue to build on the experience gained during my bachelor’s thesis. That work focused on developing a procedurally generated RPG, and it sparked my long-term interest in game design and systems programming. Through ongoing side projects, I continue to explore gameplay mechanics, level generation, and performance optimization in Unity.
+    </div>
 </div>
 
-@model IEnumerable<BusinessLayer.Dto.Game.GameViewDto>
+<div class="row mt-4">
+    <p>
+         I've been passionate about games since childhood—not just playing them, but understanding how they work. My interest in game mechanics and storytelling naturally evolved into creating my own games. This hands-on curiosity eventually led me to game development and continues to fuel my drive to experiment, learn, and build immersive experiences using Unity and C#.
+    </p>
+</div>
 
-<h2>Games List</h2>
-
-<ul>
-@foreach (var game in Model)
-{
-    <li>@game.Title</li>
-}
-</ul>
+<div class="container mt-5">
+    <h1 class="mb-4">My Games</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var game in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@game.CoverImagePath" class="card-img-top" alt="@game.Title">
+                    <div class="card-body">
+                        <h5 class="card-title">@game.Title</h5>
+                        <p class="card-text">@game.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="@game.WebGLPath" class="btn btn-primary" target="_blank">Play</a>
+                        <a href="/Game/Details/@game.Id" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
