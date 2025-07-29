@@ -10,6 +10,6 @@ WebApi
 | ---------------- | ------------------------------------------------------------ |
 | `Domain`         | Entities, no EF dependencies                                 |
 | `DataAccess`     | EF `DbContext`, configurations, migrations                   |
-| `Infrastructure` | `GameRepository`, `UnitOfWork`, `QueryHandlers` (CQRS)       |
-| `BusinessLayer`  | `DTOs`, `IGameFacade`, `GameFacade`, Validation, Mappings    |
-| `WebApi`         | Controllers, Swagger                                         |
+| `Infrastructure` | `GameRepository`, `UnitOfWork`, `GenericRepositories`        |
+| `BusinessLayer`  | `DTOs`, `Mappings`, `Facades`, Validation, App services      |
+| `WebApi`         | Controllers, Swagger, Presentation                           |
