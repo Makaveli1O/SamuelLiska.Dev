@@ -8,18 +8,15 @@ namespace MVC.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private readonly IGameService _gameService;
 
-    public HomeController(ILogger<HomeController> logger, IGameService gameService)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        _gameService = gameService;
     }
 
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        var games = await _gameService.GetAllAsync();
-        return View(games);
+        return View();
     }
 
     public IActionResult Privacy()

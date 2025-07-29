@@ -1,40 +1,83 @@
-﻿@model IEnumerable<BusinessLayer.Dto.Game.GameViewDto>
-
-@{
-    ViewData["Title"] = "Game Development";
+﻿@{
+    ViewData["Title"] = "About Me";
 }
 
-<div class="conatiner mt-5">
-    <h1>Me and Game develompent</h1>
-    <div class="row">
-        In my free time, I work on 2D projects using Unity, where I continue to build on the experience gained during my bachelor’s thesis. That work focused on developing a procedurally generated RPG, and it sparked my long-term interest in game design and systems programming. Through ongoing side projects, I continue to explore gameplay mechanics, level generation, and performance optimization in Unity.
-    </div>
-</div>
-
-<div class="row mt-4">
-    <p>
-         I've been passionate about games since childhood—not just playing them, but understanding how they work. My interest in game mechanics and storytelling naturally evolved into creating my own games. This hands-on curiosity eventually led me to game development and continues to fuel my drive to experiment, learn, and build immersive experiences using Unity and C#.
-    </p>
-</div>
-
 <div class="container mt-5">
-    <h1 class="mb-4">My Games</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        @foreach (var game in Model)
-        {
-            <div class="col">
-                <div class="card h-100">
-                    <img src="@game.CoverImagePath" class="card-img-top" alt="@game.Title">
-                    <div class="card-body">
-                        <h5 class="card-title">@game.Title</h5>
-                        <p class="card-text">@game.Description</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="@game.WebGLPath" class="btn btn-primary" target="_blank">Play</a>
-                        <a href="/Game/Details/@game.Id" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            </div>
-        }
+    <div class="text-center mb-5">
+        <h1>Hello, I'm Samuel Líška</h1>
+        <p class="lead">Software Developer specializing in PHP, C#/.NET, and Unity Game Development</p>
     </div>
-</div>
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h3>Professional Background</h3>
+            <p>
+                I’m an experienced backend developer worked primarily with PHP in enterprise environments, adhering strictly to SOLID principles, Domain-Driven Design, and Martin Fowler’s architectural patterns.
+                My day-to-day work involved maintaining and refactoring large-scale web applications, where clean architecture and long-term maintainability are essential.
+            </p>
+            <p>
+                I also work with C#/.NET in both backend APIs and MVC projects, and I'm deeply familiar with layered architecture, dependency injection, and repository/unit-of-work patterns.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h3>Active Stack</h3>
+            <ul>
+                <li>Backend: PHP, .NET 9 (C#)</li>
+                <li>Frontend: JavaScript, HTML, CSS, Razor</li>
+                <li>GameDev: Unity 2D</li>
+                <li>Persistence (Databases)<ul>
+                    <li>
+                        Relational
+                        <ul>
+                            <li>MySql</li>
+                            <li>MSSQL</li>
+                            <li>PostgreSQL (OLAP, Databases Warehouse snowflake/star)</li>
+                            <li>SQLite</li>
+                        </ul>
+                    </li>
+                    <li>
+                        NoSQL / Document
+                        <ul>
+                            <li>ElasticSearch</li>
+                        </ul>
+                    </li>
+                </ul> 
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3>Education</h3>
+            <p>
+                I earned my Bachelor's degree in Computer Science at <strong>FIT VUT</strong> (Brno University of Technology).
+                My bachelor’s thesis involved the development of a RPGs game with a procedurally generated elements using Unity Game engine. This project was presented at an exhibition in Brno that focused on raising awareness of student game development (https://hernikompas.cz/). 
+                <a href="https://www.fit.vut.cz/study/thesis/24680/.cs" target="_blank">View thesis</a>
+            </p>
+            <p>
+                I continued with a Master's degree in the specialization <strong>Development and Design of Software Systems</strong> at <strong>FI MUNI</strong> (Masaryk University). My master's thesis focused on refactoring the internal chat module of the LiveAgent software, applying Domain-Driven Design and SOLID principles to modernize a critical legacy subsystem.
+                <a href="https://is.muni.cz/th/jxtmq/" target="_blank">View thesis</a>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3>Game Development</h3>
+            <p>
+                In my free time, I explore game development using Unity. I focus on 2D mechanics and procedural content generation, building on my bachelor’s thesis about generating procedurally created RPGs. 
+                These projects allow me to work with Unity’s scripting, level generation algorithms, and performance tuning techniques.
+            </p>
+            <p>
+                I use this playground to apply clean architecture principles even in Unity contexts — implementing custom ECS patterns, behavior trees, and modular level systems.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h3>Personal Traits</h3>
+            <p>
+                I’m driven by software quality and maintainability. I value clear architecture, continuous learning, and practical use of theory. 
+                I enjoy taking
