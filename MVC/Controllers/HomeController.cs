@@ -1,21 +1,25 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
+using BusinessLayer.Services;
 
 namespace MVC.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IGameService _gameService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IGameService gameService)
     {
         _logger = logger;
+        _gameService = gameService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var games = await _gameService.GetAllAsync();
+        return View(games);
     }
 
     public IActionResult Privacy()

@@ -1,5 +1,8 @@
+using BusinessLayer.Services;
 using DataAccess.Db;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.UnitOfWork;
+using BusinessLayer.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//DI
+//builder.Services.AddScoped<IGenericRepository<Game>, GenericRepository<Game>>();
+builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddAutoMapper(typeof(GameMappingProfile).Assembly);
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

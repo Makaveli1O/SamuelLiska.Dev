@@ -6,3 +6,14 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@model IEnumerable<BusinessLayer.Dto.Game.GameViewDto>
+
+<h2>Games List</h2>
+
+<ul>
+@foreach (var game in Model)
+{
+    <li>@game.Title</li>
+}
+</ul>
