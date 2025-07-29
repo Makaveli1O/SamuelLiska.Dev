@@ -2,17 +2,20 @@ using BusinessLayer.Dto.Game;
 using GameModel = Domain.Entities.Game;
 using Infrastructure.Repository;
 using AutoMapper;
+using Infrastructure.UnitOfWork;
 
 namespace BusinessLayer.Services;
 
 public class GameService : IGameService
 {
     private readonly IGenericRepository<GameModel> _repository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public GameService(IGenericRepository<GameModel> repository, IMapper mapper)
+    public GameService(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _repository = repository;
+        _unitOfWork = unitOfWork;
+        _repository = _unitOfWork.GameRepository;
         _mapper = mapper;
     }
 
@@ -25,7 +28,7 @@ public class GameService : IGameService
 
     public async Task<GameViewDto?> GetByIdAsync(uint id)
     {
-        GameModel game = await _repository.GetByIdAsync(id);
+        GameModel? game = await _repository.GetByIdAsync(id);
         return game == null ? null : MapToDto(game);
     }
 
@@ -36,6 +39,8 @@ public class GameService : IGameService
         var game = _mapper.Map<GameModel>(dto);
 
         await _repository.AddAsync(game);
+
+        await SaveAsync();
 
         return _mapper.Map<GameViewDto>(game);
     }
@@ -60,6 +65,8 @@ public class GameService : IGameService
     {
         await _repository.DeleteAsync(id);
     }
+
+    public async Task SaveAsync() => await _unitOfWork.CommitAsync();
 
     private static void Validate(GameCreateDto gameModel)
     {
