@@ -30,8 +30,9 @@ public class AppDbContext : DbContext
             .WithMany(c => c.Games);
 
         // Seed data
-        var catPuzzle = new Category { Id = 1, Name = "Arcade" };
-        var gameReflect = new Game
+        var categoryArcade = new Category { Id = 1, Name = "Arcade" };
+        var categoryRpg = new Category { Id = 2, Name = "Role-Playing Game" };
+        var brickBreaker = new Game
         {
             Id = 1,
             Title = "Brick Breaker",
@@ -40,7 +41,21 @@ public class AppDbContext : DbContext
             WebGLPath = "/games/reflect/index.html",
             CoverImagePath = "/images/reflect.jpg",
         };
-        modelBuilder.Entity<Category>().HasData(catPuzzle);
-        modelBuilder.Entity<Game>().HasData(gameReflect);
+
+        var proceduralRpg = new Game
+        {
+            Id = 2,
+            Title = "Procedural Rpg",
+            Slug = "rpg-procedural",
+            Description = "Fight monsters and obtain orbs to win!",
+            WebGLPath = "/games/rpg/index.html",
+            CoverImagePath = "/images/rpg.jpg",
+        };
+
+        modelBuilder.Entity<Category>().HasData(categoryArcade);
+        modelBuilder.Entity<Game>().HasData(brickBreaker);
+
+        modelBuilder.Entity<Category>().HasData(categoryRpg);
+        modelBuilder.Entity<Game>().HasData(proceduralRpg);
     }
 }
