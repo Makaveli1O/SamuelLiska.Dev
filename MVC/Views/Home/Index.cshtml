@@ -3,53 +3,158 @@
 }
 
 <style>
+    body {
+        background-color: #0f0f1a;
+        color: #e5e7eb;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bg-yellow {
+        background-color: #facc15;
+        display: inline-block;
+        padding: 0.25rem 1rem;
+        border-radius: 0.25rem;
+        color: #0f0f1a;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    section.bg-dark {
+        background-color: #0d1117;
+    }
+
+    section.bg-darker {
+        background-color: #0a0e1a;
+    }
+
+    .text-primary {
+        color: #facc15 !important;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem;
+    }
+
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @@keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
     .hero-section {
-    min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-    position: relative;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: #0f0f1a;
+        color: #facc15;
+        font-family: 'Inter', sans-serif;
+        position: relative;
     }
 
-    .hero-background {
-        position: absolute;
-        inset: 0;
-        background-image: url('/images/hero.jpg');
-        background-size: cover;
-        background-position: center;
-        filter: brightness(0.6) blur(2px);
-        z-index: 1;
+    .hero-section .overlay {
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
     }
 
-    .hero-section .container {
-        z-index: 2;
+    .hero-section hr {
+        border: none;
+        border-top: 4px solid white;
+        width: 100%;
+        margin: 2rem auto;
     }
-
-    .btn-light, .btn-outline-light {
+    .hero-btn {
         font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        border-radius: 50px;
+        padding: 0.75rem 2rem;
+        margin: 0 1rem;
+        transition: all 0.3s ease;
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+        position: relative;
+        z-index: 1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
+    .hero-btn-light {
+        background-color: #facc15;
+        color: #0f0f1a;
+        border: none;
+    }
+
+    .hero-btn-light:hover {
+        background-color: #eab308;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .hero-btn-outline {
+        background-color: transparent;
+        border: 2px solid #facc15;
+        color: #facc15;
+    }
+
+    .hero-btn-outline:hover {
+        background-color: #facc15;
+        color: #0f0f1a;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .section-divider {
+        position: relative;
+        margin-top: -1px;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .section-title-highlight {
+        background: linear-gradient(120deg, #facc15 0%, #fcd34d 100%);
+        color: #0f0f1a;
+        display: inline-block;
+        padding: 0.2em 0.5em;
+        border-radius: 0.25em;
+        transform: skewX(-5deg);
+    }
 </style>
 
-    <section class="hero-section position-relative text-white d-flex align-items-center justify-content-center">
-        <div class="hero-background"></div>
-        <div class="container position-relative z-2 text-center" data-aos="fade-up">
-            <h1 class="display-3 fw-bold mb-3">Hi, I'm Samuel Líška</h1>
-            <p class="lead mb-4">Software Engineer • Web Developer • Unity2D Enthusiast</p>
-            <div>
-                <a href="#projects" class="btn btn-light btn-lg me-3">See My Work</a>
-                <a href="mailto:samuel.liska49@gmail.com" class="btn btn-outline-light btn-lg">Contact Me</a>
-            </div>
+<section class="hero-section text-center text-yellow">
+    <div class="overlay d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-1 fw-bold">SAMUEL</h1>
+        <h2 class="display-4 fw-bold bg-yellow text-dark px-3">LÍŠKA</h2>
+        <p class="lead mb-4">Software Engineer • Web Developer • Unity2D Enthusiast</p>
+        <hr>
+        <div class="hero-buttons">
+            <a href="#projects" class="hero-btn hero-btn-light">See My Work</a>
+            <a href="mailto:samuel.liska49@gmail.com" class="hero-btn hero-btn-outline">Contact Me</a>
         </div>
-    </section>
+    </div>
+</section>
 
-<div class="container py-5">
-    <section class="py-5 fade-in-section">
+<div class="container">
+    <section class="fade-in-section bg-dark">
         <div class="container">
             <h2 class="display-5 fw-bold mb-4 text-primary">
-                <i class="bi bi-code-slash me-2D"></i>Professional Background
+                <i class="bi bi-code-slash me-2 section-title-highlight"></i>Professional Background
             </h2>
             <p class="fs-5 mb-4">
                 I’m an experienced backend developer who has worked extensively with PHP in enterprise environments,
@@ -59,11 +164,17 @@
                 I also work with C#/.NET on backend APIs and MVC apps, onion architecture, dependency injection.
             </p>
         </div>
+
+        <div class="section-divider">
+            <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+                <path d="M0,0 C300,100 900,0 1200,100 L1200,0 L0,0 Z" fill="#0a0e1a"></path>
+            </svg>
+        </div>
     </section>
 
-    <section class="py-5 fade-in-section bg-light">
+    <section class="fade-in-section bg-darker">
         <div class="container">
-            <h2 class="display-5 fw-bold mb-4 text-dark">
+            <h2 class="display-5 fw-bold mb-4 text-primary">
                 <i class="bi bi-tools me-2"></i>Active Stack
             </h2>
             <ul class="fs-5">
@@ -80,9 +191,9 @@
         </div>
     </section>
 
-    <section class="py-5 fade-in-section">
+    <section class="fade-in-section bg-dark">
         <div class="container">
-            <h2 class="display-5 fw-bold mb-4 text-dark">
+            <h2 class="display-5 fw-bold mb-4 text-primary">
                 <i class="bi bi-mortarboard-fill me-2"></i>Education
             </h2>
             <p class="fs-5">
@@ -97,9 +208,9 @@
         </div>
     </section>
 
-    <section class="py-5 fade-in-section bg-light">
+    <section class="fade-in-section bg-darker">
         <div class="container">
-            <h2 class="display-5 fw-bold mb-4 text-dark">
+            <h2 class="display-5 fw-bold mb-4 text-primary">
                 <i class="bi bi-controller me-2"></i>Game Development
             </h2>
             <p class="fs-5">
@@ -108,9 +219,9 @@
         </div>
     </section>
 
-    <section class="py-5 fade-in-section">
+    <section class="fade-in-section bg-dark">
         <div class="container">
-            <h2 class="display-5 fw-bold mb-4 text-dark">
+            <h2 class="display-5 fw-bold mb-4 text-primary">
                 <i class="bi bi-lightning-fill me-2"></i>Personal Traits
             </h2>
             <p class="fs-5">

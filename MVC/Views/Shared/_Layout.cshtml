@@ -4,117 +4,82 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Samuel Líška - Software Engineer</title>
-    <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <style>
-        .custom-navbar {
-            background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-            padding: 1rem 0;
+        body {
+            background-color: #0d1117;
+            color: #e5e7eb;
             font-family: 'Inter', sans-serif;
-            position: sticky;
-            top: 0;
-            z-index: 1030;
-            transition: background-color 0.3s ease;
         }
 
-        /* Brand */
-        .custom-navbar .navbar-brand {
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.75rem;
-            letter-spacing: 1.2px;
-            transition: transform 0.3s ease;
-        }
-        .custom-navbar .navbar-brand:hover {
-            transform: scale(1.05);
-            color: #ffd700;
+        /* NAVBAR */
+        .custom-navbar {
+            background-color: #0f172a;
+            border-bottom: 1px solid #1f2937;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
-        /* Nav links */
-        .custom-navbar .nav-link {
-            color: #e0f7f9;
-            font-weight: 600;
-            margin-left: 1.5rem;
-            position: relative;
-            padding-bottom: 0.25rem;
-            transition: color 0.3s ease;
-        }
-        .custom-navbar .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #ffd700;
-            transition: width 0.3s ease;
-        }
-        .custom-navbar .nav-link:hover {
-            color: #ffd700;
-        }
-        .custom-navbar .nav-link:hover::after {
-            width: 100%;
+        .navbar-brand {
+            color: #facc15;
+            font-weight: bold;
+            font-size: 1.6rem;
         }
 
-        /* Active link styling */
-        .custom-navbar .nav-link.active {
-            color: #ffd700 !important;
-        }
-        .custom-navbar .nav-link.active::after {
-            width: 100%;
+        .navbar-brand:hover {
+            color: #eab308;
         }
 
-        /* Navbar toggler for small screens */
-        .custom-navbar .navbar-toggler {
+        .nav-link {
+            color: #cbd5e1;
+            margin-left: 1.25rem;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #facc15;
+        }
+
+        .nav-link.active {
+            color: #facc15;
+            border-bottom: 2px solid #facc15;
+        }
+
+        .navbar-toggler {
             border: none;
         }
-        .custom-navbar .navbar-toggler:focus {
-            outline: none;
-            box-shadow: none;
-        }
-        .custom-navbar .navbar-toggler-icon {
+
+        .navbar-toggler-icon {
             filter: invert(1);
         }
 
-        /* Responsive adjustments */
-        @@media (max-width: 576px) {
-            .custom-navbar .nav-link {
-                margin-left: 0;
-                margin-top: 0.75rem;
-            }
-            .custom-navbar .navbar-collapse {
-                background: linear-gradient(180deg, #007cf0 0%, #00dfd8 100%);
-                padding: 1rem;
-                border-radius: 0 0 10px 10px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            }
-        }
-
-        .custom-navbar .nav-link i {
-            font-size: 1.25rem;
-            color: #f1f5f9;
+        .nav-link i {
+            color: #cbd5e1;
             transition: color 0.3s ease, transform 0.3s ease;
         }
-        .custom-navbar .nav-link:hover i {
-            color: #ffd700;
+
+        .nav-link:hover i {
+            color: #facc15;
             transform: translateY(-2px);
         }
 
-        /*
-        FOOTER
-        */
+        .navbar-collapse {
+            background-color: #0f172a;
+        }
+
+        /* FOOTER */
         .custom-footer {
-            background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%);
-            color: #f1f5f9;
-            font-family: 'Inter', sans-serif;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.25);
+            background-color: #0f172a;
+            border-top: 1px solid #1f2937;
+            color: #cbd5e1;
+            padding: 2rem 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
 
         .custom-footer.visible {
@@ -123,85 +88,74 @@
         }
 
         .footer-link {
-            color: #cbd5e1;
+            color: #94a3b8;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
+
         .footer-link:hover {
-            color: #ffd700;
+            color: #facc15;
         }
 
         .footer-icons a {
-            color: #cbd5e1;
-            margin-left: 1rem;
+            color: #94a3b8;
+            margin-left: 1.25rem;
             font-size: 1.25rem;
-            transition: color 0.3s ease, transform 0.3s ease;
         }
+
         .footer-icons a:hover {
-            color: #ffd700;
+            color: #facc15;
             transform: translateY(-2px);
         }
 
-        /*FADEINS SECTION*/
+        .footer-icons i {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.7s ease-out;
-            will-change: opacity, transform;
         }
 
         .fade-in-section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm custom-navbar">
+        <nav class="navbar navbar-expand-sm custom-navbar sticky-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    Samuel Líška
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-<div class="collapse navbar-collapse" id="mainNavbar">
-    <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
-        </li>
+                <li class="nav-item ms-3 d-none d-md-inline">
+                    <a href="mailto:samuel.liska49@gmail.com" class="nav-link px-2" title="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-md-inline">
+                    <a href="https://github.com/Makaveli1O" class="nav-link px-2" target="_blank" title="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-md-inline">
+                    <a href="https://www.linkedin.com/in/samuel-l%C3%AD%C5%A1ka-750903224/" class="nav-link px-2" target="_blank" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </li>
 
-        <!-- Social Icons -->
-        <li class="nav-item ms-3 d-none d-md-inline">
-            <a href="mailto:samuel.liska49@gmail.com" class="nav-link px-2" title="Email">
-                <i class="bi bi-envelope-fill"></i>
-            </a>
-        </li>
-        <li class="nav-item d-none d-md-inline">
-            <a href="https://github.com/Makaveli1O" class="nav-link px-2" target="_blank" title="GitHub">
-                <i class="bi bi-github"></i>
-            </a>
-        </li>
-        <li class="nav-item d-none d-md-inline">
-            <a href="https://www.linkedin.com/in/samuel-l%C3%AD%C5%A1ka-750903224/" class="nav-link px-2" target="_blank" title="LinkedIn">
-                <i class="bi bi-linkedin"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -213,22 +167,16 @@
     </div>
 
     <footer class="custom-footer mt-5">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="text-center text-md-start mb-3 mb-md-0">
-                <span>&copy; 2025 Samuel Líška</span> ·
+                &copy; 2025 Samuel Líška ·
                 <a asp-area="" asp-controller="Home" asp-action="Privacy" class="footer-link">Privacy</a>
             </div>
 
             <div class="footer-icons text-center text-md-end">
-                <a href="mailto:samuel.liska49@gmail.com" class="footer-icon" title="Email">
-                    <i class="bi bi-envelope-fill"></i>
-                </a>
-                <a href="https://github.com/Makaveli1O" class="footer-icon" title="GitHub" target="_blank">
-                    <i class="bi bi-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/samuel-l%C3%AD%C5%A1ka-750903224/" class="footer-icon" title="LinkedIn" target="_blank">
-                    <i class="bi bi-linkedin"></i>
-                </a>
+                <a href="mailto:samuel.liska49@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/Makaveli1O" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/samuel-l%C3%AD%C5%A1ka-750903224/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
     </footer>
@@ -248,26 +196,22 @@
                 });
             }, { threshold: 0.1 });
             if (footer) observer.observe(footer);
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.fade-in-section');
-
-            const observer = new IntersectionObserver((entries, obs) => {
+            const sectionObserver = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        obs.unobserve(entry.target); // Animate once
+                        obs.unobserve(entry.target);
                     }
                 });
             }, {
                 threshold: 0.1
             });
 
-            sections.forEach(section => observer.observe(section));
+            sections.forEach(section => sectionObserver.observe(section));
         });
     </script>
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
