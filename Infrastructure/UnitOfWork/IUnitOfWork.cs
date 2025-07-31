@@ -6,6 +6,7 @@ namespace Infrastructure.UnitOfWork;
 public interface IUnitOfWork : IDisposable
 {
     public IGenericRepository<Game> GameRepository { get; }
+    public IGenericRepository<Feature> FeatureRepository{ get; }
     public void Commit();
     public Task CommitAsync();
     public void Rollback();

@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
     public DbSet<Game> Games { get; set; }
+    public DbSet<Feature> Features { get; set;}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -25,9 +26,19 @@ public class AppDbContext : DbContext
             .HasMaxLength(50)
             .IsRequired();
 
+        modelBuilder.Entity<Feature>()
+            .Property(f => f.Name)
+            .HasMaxLength(50)
+            .IsRequired();
+
         modelBuilder.Entity<Game>()
             .HasMany(g => g.Categories)
             .WithMany(c => c.Games);
+
+        modelBuilder.Entity<Game>()
+            .HasMany(g => g.Features)
+            .WithMany();
+
 
         // Seed data
         var categoryArcade = new Category { Id = 1, Name = "Arcade" };

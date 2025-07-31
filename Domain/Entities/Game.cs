@@ -11,4 +11,5 @@ public class Game : IEntity
     public string CoverImagePath { get; set; } = string.Empty;
 
     public ICollection<Category> Categories { get; set; } = new List<Category>();
+    public ICollection<Feature> Features { get; set; } = new List<Feature>();
 }

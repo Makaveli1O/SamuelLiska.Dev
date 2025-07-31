@@ -9,11 +9,14 @@ public class UnitOfWork : IUnitOfWork
     private readonly AppDbContext _dbContext;
     private GenericRepository<Game> _gameRepository;
     public IGenericRepository<Game> GameRepository => _gameRepository;
+    private GenericRepository<Feature> _featureRepository;
+    public IGenericRepository<Feature> FeatureRepository => _featureRepository;
 
     public UnitOfWork(AppDbContext dbContext)
     {
         _dbContext = dbContext;
         _gameRepository = new GenericRepository<Game>(_dbContext);
+        _featureRepository = new GenericRepository<Feature>(_dbContext);
     }
     public void Commit()
     {
