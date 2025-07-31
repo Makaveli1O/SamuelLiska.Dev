@@ -6,10 +6,4 @@ public class Feature : IEntity
 {
     public uint Id { get; set; }
     public string Name { get; set; } = string.Empty;
-
-    public Feature(uint id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
 }
