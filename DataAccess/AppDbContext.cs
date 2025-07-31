@@ -40,7 +40,7 @@ public class AppDbContext : DbContext
             Description = "Control your paddle and destroy all the blocks!",
             DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the block and obtain highest score.",
             WebGLPath = "/games/reflect/index.html",
-            CoverImagePath = "/images/reflect.jpg",
+            CoverImagePath = "/images/games/brick_breaker_img_cover.jpg",
         };
 
         var proceduralRpg = new Game
@@ -51,7 +51,7 @@ public class AppDbContext : DbContext
             Description = "Fight monsters and obtain orbs to win!",
             DetailedDescription = "The player is thrown into a generated world with the main objective of collecting all missing keys to finish the game. Each key is located in a different biome, and while biomes can repeat, each contains exactly one key. The difficulty varies by biome and its enemies, making each playthrough more variable as the player explores the world.",
             WebGLPath = "/games/rpg/index.html",
-            CoverImagePath = "/images/rpg.jpg",
+            CoverImagePath = "/images/games/rpg_img_cover.jpg",
         };
 
         modelBuilder.Entity<Category>().HasData(categoryArcade);

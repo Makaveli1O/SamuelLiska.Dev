@@ -130,6 +130,28 @@
         font-size: 1.1rem;
         color: #e5e7eb;
     }
+
+    .overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.75); /* dark semi-transparent layer */
+        clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+        z-index: -1;
+    }
+
+    /* Diagonal for left-aligned blocks */
+.game-block-left .overlay::before {
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+}
+
+/* Diagonal for right-aligned blocks */
+.game-block-right .overlay::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+}
 </style>
 
 <!-- Intro Section -->
