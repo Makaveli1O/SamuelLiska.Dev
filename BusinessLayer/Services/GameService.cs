@@ -55,6 +55,7 @@ public class GameService : IGameService
         existing.Title = dto.Title;
         existing.Slug = dto.Slug;
         existing.Description = dto.Description;
+        existing.DetailedDescription = dto.DetailedDescription;
         existing.WebGLPath = dto.WebGLPath;
         existing.CoverImagePath = dto.CoverImagePath;
 
@@ -92,6 +93,7 @@ public class GameService : IGameService
         Title = model.Title,
         Slug = model.Slug,
         Description = model.Description,
+        DetailedDescription = model.DetailedDescription,
         WebGLPath = model.WebGLPath,
         CoverImagePath = model.CoverImagePath
     };
