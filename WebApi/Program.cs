@@ -3,6 +3,9 @@ using BusinessLayer.Services;
 using Microsoft.EntityFrameworkCore;
 using BusinessLayer.Mapping;
 using Infrastructure.UnitOfWork;
+using BusinessLayer.Dto.Game;
+using Domain.Entities;
+using BusinessLayer.Dto.Feature;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +18,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<IGenericService<GameViewDto, GameCreateDto>, GameService>();
+builder.Services.AddScoped<IGenericService<FeatureViewDto, FeatureCreateDto>, FeatureService>();
+
 builder.Services.AddAutoMapper(typeof(GameMappingProfile).Assembly);
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

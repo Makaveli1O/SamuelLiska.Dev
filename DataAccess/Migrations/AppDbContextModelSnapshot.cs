@@ -59,6 +59,22 @@ namespace DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Domain.Entities.Feature", b =>
+                {
+                    b.Property<uint>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Features");
+                });
+
             modelBuilder.Entity("Domain.Entities.Game", b =>
                 {
                     b.Property<uint>("Id")
@@ -70,6 +86,10 @@ namespace DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DetailedDescription")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -97,8 +117,9 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1u,
-                            CoverImagePath = "/images/reflect.jpg",
+                            CoverImagePath = "/images/games/brick_breaker_img_cover.jpg",
                             Description = "Control your paddle and destroy all the blocks!",
+                            DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the block and obtain highest score.",
                             Slug = "brick-breaker",
                             Title = "Brick Breaker",
                             WebGLPath = "/games/reflect/index.html"
@@ -106,12 +127,28 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 2u,
-                            CoverImagePath = "/images/rpg.jpg",
+                            CoverImagePath = "/images/games/rpg_img_cover.jpg",
                             Description = "Fight monsters and obtain orbs to win!",
+                            DetailedDescription = "The player is thrown into a generated world with the main objective of collecting all missing keys to finish the game. Each key is located in a different biome, and while biomes can repeat, each contains exactly one key. The difficulty varies by biome and its enemies, making each playthrough more variable as the player explores the world.",
                             Slug = "rpg-procedural",
                             Title = "Procedural Rpg",
                             WebGLPath = "/games/rpg/index.html"
                         });
+                });
+
+            modelBuilder.Entity("FeatureGame", b =>
+                {
+                    b.Property<uint>("FeaturesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<uint>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("FeaturesId", "GameId");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("FeatureGame");
                 });
 
             modelBuilder.Entity("CategoryGame", b =>
@@ -125,6 +162,21 @@ namespace DataAccess.Migrations
                     b.HasOne("Domain.Entities.Game", null)
                         .WithMany()
                         .HasForeignKey("GamesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FeatureGame", b =>
+                {
+                    b.HasOne("Domain.Entities.Feature", null)
+                        .WithMany()
+                        .HasForeignKey("FeaturesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Game", null)
+                        .WithMany()
+                        .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

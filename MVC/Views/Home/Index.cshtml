@@ -1,19 +1,348 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "About Me";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body {
+        background-color: #0f0f1a;
+        color: #e5e7eb;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bg-yellow {
+        background-color: #facc15;
+        display: inline-block;
+        padding: 0.25rem 1rem;
+        border-radius: 0.25rem;
+        color: #0f0f1a;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    section.bg-dark {
+        background-color: #0d1117;
+    }
+
+    .text-primary {
+        color: #facc15 !important;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem;
+    }
+
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero-section {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: #0f0f1a;
+        color: #facc15;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+    }
+
+    .hero-section .overlay {
+        height: 100%;
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .hero-section hr {
+        z-index: 2;
+        border: none;
+        border-top: 4px solid white;
+        width: 100%;
+        position: absolute;
+        bottom: 5%;
+    }
+    .hero-btn {
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        margin: 0 1rem;
+        transition: all 0.3s ease;
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+        position: relative;
+        z-index: 1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hero-btn-light {
+        background-color: #facc15;
+        color: #0f0f1a;
+        border: none;
+    }
+
+    .hero-btn-light:hover {
+        background-color: #eab308;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .hero-btn-outline {
+        background-color: transparent;
+        border: 2px solid #facc15;
+        color: #facc15;
+    }
+
+    .hero-btn-outline:hover {
+        background-color: #facc15;
+        color: #0f0f1a;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .section-divider {
+        position: relative;
+        margin-top: -1px;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .section-title-highlight {
+        background: linear-gradient(120deg, #facc15 0%, #fcd34d 100%);
+        color: #0f0f1a;
+        display: inline-block;
+        padding: 0.2em 0.5em;
+        border-radius: 0.25em;
+        transform: skewX(-5deg);
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .text-primary {
+        color: #facc15 !important;
+    }
+
+    .icon-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem;
+    }
+
+    .section-alt {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .section-alt.even .text-col {
+        order: 2;
+    }
+
+    .section-alt .text-col,
+    .section-alt .image-col {
+        flex: 1 1 45%;
+    }
+
+    .section-alt .image-col {
+        text-align: center;
+    }
+
+    .section-alt .image-col img {
+        max-width: 100%;
+        border-radius: 1rem;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .hero-section {
+        position: relative;
+    }
+
+    .hero-photo-transparent {
+        position: absolute;
+        bottom: 7%;
+        right: 5%;
+        width: 300px;
+        max-width: 30vw;
+        pointer-events: none; /* So clicks pass through */
+        filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.6));
+        user-select: none;
+        z-index: 1;
+        transition: transform 0.3s ease;
+    }
+    .hero-photo-transparent:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<section class="hero-section text-yellow position-relative text-start">
+    <div class="overlay d-flex flex-column justify-content-center align-items-start px-4">
+        <img src="~/images/profile2.png" alt="Samuel Líška" class="hero-photo-transparent" />
+        <div>
+            <h1 class="display-1 fw-bold">SAMUEL</h1>
+            <h2 class="display-4 fw-bold bg-yellow text-dark px-3 d-inline-block">LÍŠKA</h2>
+        </div>
+        <p class="lead mb-4 mt-3">Software Engineer • Web Developer • Unity2D Enthusiast</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="hero-btn hero-btn-light">See My Work</a>
+            <a href="mailto:samuel.liska49@gmail.com" class="hero-btn hero-btn-outline">Contact Me</a>
+        </div>
+    </div>
+    <hr>
+</section>
+
+<div class="container">
+
+    <section class="fade-in-section">
+        <div class="angled-divider top-clip"></div>
+        <div class="section-content">
+            <div class="section-alt odd">
+                <div class="text-col">
+                    <h2 class="display-5 fw-bold mb-4 text-primary icon-title">
+                        <i class="bi bi-code-slash section-title-highlight"></i>Professional Background
+                    </h2>
+                    <p class="fs-5">
+                        Backend engineer focused on transforming enterprise systems through strategic refactoring and clean architecture.
+                    </p>
+                        <p class="fs-5"></p>
+                            I’ve worked on maintaining and extending <strong>LiveAgent</strong>, a large-scale web application used by over a million users worldwide. My primary focus was on improving architecture, refactoring legacy modules, and ensuring long-term maintainability.
+                        </p>
+                        <p class="fs-5 mt-3">
+                            In addition to product work, I’ve completed several freelance projects — including internal tools and systems for a local <strong>camera security company</strong>, website maintenance for <strong>basketball club BBA Komárno</strong>, and backend work for a <strong>private transport company</strong> in Komárno.
+                        </p>
+                </div>
+                <div class="image-col">
+                    <!--<img src="/images/code-bg.png" alt="Code Illustration">-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-in-section bg-darker">
+        <div class="angled-divider bottom-clip"></div>
+        <div class="section-content">
+            <div class="section-alt even">
+                <div class="text-col">
+                    <h2 class="display-5 fw-bold mb-4 text-primary icon-title">
+                        <i class="bi bi-tools section-title-highlight"></i>Active Stack
+                    </h2>
+                    <ul class="fs-5">
+                        <li>Backend: PHP, .NET (C#)</li>
+                        <li>Frontend: JavaScript, Razor, HTML, CSS</li>
+                        <li>GameDev: Unity 2D</li>
+                        <li>Persistence:
+                            <ul>
+                                <li><strong>Relational:</strong> MySQL, MSSQL, PostgreSQL (OLAP), SQLite</li>
+                                <li><strong>NoSQL:</strong> ElasticSearch</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="mt-3 fst-italic fs-6 text-muted text-primary">
+                        I’ve worked with a broader range of technologies — this list reflects only what I currently use actively.
+                    </p>
+                </div>
+                <div class="image-col">
+                    <!--<img src="/images/stack-icons.png" alt="Tech Stack">-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-in-section">
+        <div class="angled-divider top-clip"></div>
+        <div class="section-content">
+            <div class="section-alt odd">
+                <div class="text-col">
+                    <h2 class="display-5 fw-bold mb-4 text-primary icon-title">
+                        <i class="bi bi-mortarboard-fill section-title-highlight"></i>Education
+                    </h2>
+                    <p class="fs-5">
+                        <b>Bachelor's</b> in Computer Science <i>(2022)</i> – <strong>Brno University of Technology - Faculty of Information Technology</strong>. Thesis: RPG Game in Unity with Procedural Elements.
+                    </p>
+                    <p class="row">
+                    <a href="https://www.fit.vut.cz/study/thesis/24680/.cs" target="_blank" class="hero-btn hero-btn-outline">Bachelor's Thesis</a>
+                    <p>
+                    <p class="fs-5">
+                       <b>Master's</b> in Design and Development of Software Systems <i>(2025)</i> – <strong>Masaryk University Faculty of Informatics</strong>. Thesis: Implementation of internal communication module in LiveAgent software using Domain-driven design concepts.
+                    </p>
+                    <p class="row">
+                        <a href="https://is.muni.cz/th/jxtmq/" target="_blank" class="hero-btn hero-btn-light ">Master's Thesis</a>
+                    </p>
+                </div>
+                <div class="image-col">
+                    <!--<img src="/images/uni-icon.png" alt="Education Illustration">-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-in-section bg-darker">
+        <div class="angled-divider bottom-clip"></div>
+        <div class="section-content">
+            <div class="section-alt even">
+                <div class="text-col">
+                    <h2 class="display-5 fw-bold mb-4 text-primary icon-title">
+                        <i class="bi bi-controller section-title-highlight"></i>Game Development
+                    </h2>
+                    <p class="fs-5">
+                        I blend my love for gaming and engineering by building 2D games in Unity — always aiming for tight mechanics and clean, maintainable code.
+                    </p>
+                    <a href="/Game" class="hero-btn hero-btn-outline">See My Games</a>
+                </div>
+                <div class="image-col">
+                    <!--<img src="/images/unity-dev.png" alt="Game Development">-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-in-section">
+        <div class="angled-divider top-clip"></div>
+        <div class="section-content">
+            <div class="section-alt odd">
+                <div class="text-col">
+                    <h2 class="display-5 fw-bold mb-4 text-primary icon-title">
+                        <i class="bi bi-lightning-fill section-title-highlight"></i>Personal Traits
+                    </h2>
+                    <p class="mt-4 fs-5">
+                        My strongest experience is in web development, mainly with PHP and C#. But these are simply tools — I consider them a means of applying sound software engineering practices. I'm committed to continuous learning and to delivering scalable, maintainable, and testable software, whether building new systems or refactoring legacy codebases.
+                    </p>
+                </div>
+                <div class="image-col">
+                    <!--<img src="/images/clean-code.png" alt="Traits Illustration">-->
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-
-@model IEnumerable<BusinessLayer.Dto.Game.GameViewDto>
-
-<h2>Games List</h2>
-
-<ul>
-@foreach (var game in Model)
-{
-    <li>@game.Title</li>
-}
-</ul>

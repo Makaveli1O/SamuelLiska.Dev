@@ -10,9 +10,9 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class GameController : ControllerBase
     {
-        private readonly IGameService _service;
+        private readonly IGenericService<GameViewDto, GameCreateDto> _service;
 
-        public GameController(IGameService service)
+        public GameController(IGenericService<GameViewDto, GameCreateDto> service)
         {
             _service = service;
         }

@@ -3,48 +3,264 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MVC</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] - Samuel Líška - Software Engineer</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVC.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <style>
+    body {
+        background-color: #0d1117;
+        color: #e5e7eb;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* NAVBAR */
+    .custom-navbar {
+        background-color: #0f172a;
+        border-bottom: 1px solid #1f2937;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    a{
+        color: #facc15;
+    }
+
+    .navbar-brand {
+        color: #facc15;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+
+    .navbar-brand:hover {
+        color: #eab308;
+    }
+
+    .nav-link {
+        color: #cbd5e1;
+        margin-left: 1.25rem;
+        font-weight: 500;
+        transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #facc15;
+    }
+
+    .nav-link.active {
+        color: #facc15;
+        border-bottom: 2px solid #facc15;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+
+    .nav-link i {
+        color: #cbd5e1;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-link:hover i {
+        color: #facc15;
+        transform: translateY(-2px);
+    }
+
+    .navbar-collapse {
+        background-color: #0f172a;
+    }
+
+    /* FOOTER */
+    .custom-footer {
+        background-color: #0f172a;
+        border-top: 1px solid #1f2937;
+        color: #cbd5e1;
+        padding: 2rem 0;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+    }
+
+    .custom-footer.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .footer-link {
+        color: #94a3b8;
+        text-decoration: none;
+    }
+
+    .footer-link:hover {
+        color: #facc15;
+    }
+
+    .footer-icons a {
+        color: #94a3b8;
+        margin-left: 1.25rem;
+        font-size: 1.25rem;
+    }
+
+    .footer-icons a:hover {
+        color: #facc15;
+        transform: translateY(-2px);
+    }
+
+    .footer-icons i {
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s ease-out;
+    }
+
+    .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .custom-btn {
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        margin: 0 1rem;
+        transition: all 0.3s ease;
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+        position: relative;
+        z-index: 1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .custom-btn-light {
+        background-color: #facc15;
+        color: #0f0f1a;
+        border: none;
+    }
+
+    .custom-btn-light:hover {
+        background-color: #eab308;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .custom-btn-outline {
+        background-color: transparent;
+        border: 2px solid #facc15;
+        color: #facc15;
+    }
+
+    .custom-btn-outline:hover {
+        background-color: #facc15;
+        color: #0f0f1a;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .custom-buttons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+        <nav class="navbar navbar-expand-sm custom-navbar sticky-top">
+            <div class="container">
+                <li class="nav-item ms-3 d-none d-md-inline">
+                    <a href="mailto:samuel.liska49@gmail.com" class="nav-link px-2" title="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-md-inline">
+                    <a href="https://github.com/Makaveli1O" class="nav-link px-2" target="_blank" title="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none d-md-inline">
+                    <a href="https://www.linkedin.com/in/samuel-l%C3%AD%C5%A1ka-750903224/" class="nav-link px-2" target="_blank" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </li>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">About</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="custom-footer mt-5">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="text-center text-md-start mb-3 mb-md-0">
+                &copy; 2025 Samuel Líška ·
+                <a asp-area="" asp-controller="Home" asp-action="Privacy" class="footer-link">Privacy</a>
+            </div>
+
+            <div class="footer-icons text-center text-md-end">
+                <a href="mailto:samuel.liska49@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/Makaveli1O" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/samuel-l%C3%AD%C5%A1ka-750903224/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const footer = document.querySelector('.custom-footer');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        footer.classList.add('visible');
+                        observer.unobserve(footer);
+                    }
+                });
+            }, { threshold: 0.1 });
+            if (footer) observer.observe(footer);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            const sectionObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => sectionObserver.observe(section));
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

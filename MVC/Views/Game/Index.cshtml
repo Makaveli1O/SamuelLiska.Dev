@@ -1,0 +1,202 @@
+﻿@model IEnumerable<BusinessLayer.Dto.Game.GameViewDto>
+
+@{
+    ViewData["Title"] = "Game Development";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(to bottom, #0f0f1a, #1e1e2e);
+        color: #e5e7eb;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+
+    .games-section {
+        background-color: #0f0f1a;
+    }
+
+    h1, h5 {
+        font-weight: 600;
+        color: #facc15;
+        margin-bottom: 1rem;
+    }
+
+    .intro-text {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: #d1d5db;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgb(0 0 0 / 0.3);
+        background-color: #1f2937;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(250, 204, 21, 0.2);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        object-fit: cover;
+        height: 200px;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+        transform: scale(1.05);
+    }
+
+    .card-title {
+        font-weight: 600;
+        color: #facc15;
+    }
+
+    .card-text {
+        color: #cbd5e1;
+    }
+
+    .btn-primary {
+        background-color: #facc15;
+        border-color: #facc15;
+        color: #0f172a;
+        font-weight: 600;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #eab308;
+        border-color: #eab308;
+        color: #000;
+    }
+
+    .game-showcase {
+        position: relative;
+        height: 70vh;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .game-showcase::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .overlay {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding: 0 10%;
+    }
+
+    .content-box {
+        max-width: 500px;
+    }
+
+    .game-block-left .overlay {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .game-block-right .overlay {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    .game-showcase h2 {
+        font-size: 2.5rem;
+    }
+
+    .game-showcase p {
+        font-size: 1.1rem;
+        color: #e5e7eb;
+    }
+
+    .overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.75); /* dark semi-transparent layer */
+        clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+        z-index: -1;
+    }
+
+    /* Diagonal for left-aligned blocks */
+.game-block-left .overlay::before {
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+}
+
+/* Diagonal for right-aligned blocks */
+.game-block-right .overlay::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+}
+</style>
+
+<!-- Intro Section -->
+<section class="intro-section">
+    <div class="container">
+        <h1 data-aos="fade-up">Game Development</h1>
+        <p class="intro-text" data-aos="fade-up" data-aos-delay="100">
+            In my free time, I work on 2D projects using Unity, building on the experience gained during my bachelor’s thesis focused on procedural RPG development. This sparked a long-term passion for game design and systems programming.
+        </p>
+        <p class="intro-text" data-aos="fade-up" data-aos-delay="200">
+            Through ongoing projects, I explore gameplay mechanics, level generation, and performance optimization in Unity. I'm especially focused on building efficient systems and polished feel using C#.
+        </p>
+    </div>
+</section>
+
+<section class="games-section px-0">
+    <div class="container-fluid px-0">
+        <h1 class="mb-5 text-center" data-aos="fade-up">Games Portfolio</h1>
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var game = Model.ElementAt(i);
+            var isEven = i % 2 == 0;
+            var bgClass = isEven ? "game-block-left" : "game-block-right";
+
+            <div class="game-showcase @bgClass" style="background-image: url('@game.CoverImagePath');">
+                <div class="overlay d-flex flex-column justify-content-center align-items-@((isEven ? "start" : "end")) text-start text-light" data-aos="zoom-in">
+                    <div class="content-box">
+                        <h2 class="text-yellow fw-bold">@game.Title</h2>
+                        <p>@game.Description</p>
+                        <div class="custom-buttons mt-3">
+                            <a href="@game.WebGLPath" class="custom-btn custom-btn-outline me-2" target="_blank" rel="noopener">Play</a>
+                            <a href="/Game/Details/@game.Id" class="custom-btn custom-btn-light">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+</script>
