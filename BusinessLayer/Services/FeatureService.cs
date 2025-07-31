@@ -8,7 +8,7 @@ namespace BusinessLayer.Services;
 
 public class FeatureService : GenericService<Feature, FeatureViewDto, FeatureCreateDto>
 {
-    public FeatureService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork.FeatureRepository, unitOfWork, mapper){}
+    public FeatureService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper){}
 
     protected override uint GetId(FeatureViewDto dto) => dto.Id;
 

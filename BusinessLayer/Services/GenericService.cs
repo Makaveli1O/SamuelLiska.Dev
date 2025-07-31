@@ -11,10 +11,10 @@ public abstract class GenericService<TEntity, TViewDto, TCreateDto> : IGenericSe
     protected readonly IUnitOfWork _unitOfWork;
     protected readonly IMapper _mapper;
 
-    protected GenericService(IGenericRepository<TEntity> repository, IUnitOfWork unitOfWork, IMapper mapper)
+    protected GenericService(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _repository = repository;
         _unitOfWork = unitOfWork;
+        _repository = _unitOfWork.GetRepositoryByEntity<TEntity>();
         _mapper = mapper;
     }
 

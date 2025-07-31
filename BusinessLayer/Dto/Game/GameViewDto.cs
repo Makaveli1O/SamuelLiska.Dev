@@ -1,4 +1,7 @@
+using BusinessLayer.Dto.Feature;
+
 namespace BusinessLayer.Dto.Game;
+
 public class GameViewDto
 {
     public uint Id { get; set; }
@@ -6,8 +9,8 @@ public class GameViewDto
     public string Slug { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string DetailedDescription { get; set; } = string.Empty;
-    public IEnumerable<string> DevelopmentHighlights { get; set; } = [];
     public string? TrailerUrl { get; set; } = string.Empty;
     public string WebGLPath { get; set; } = string.Empty;
     public string CoverImagePath { get; set; } = string.Empty;
+    public List<FeatureViewDto> Features { get; set; } = new();
 }

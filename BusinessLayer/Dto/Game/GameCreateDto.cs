@@ -1,4 +1,5 @@
 namespace BusinessLayer.Dto.Game;
+
 public class GameCreateDto
 {
     public string Title { get; set; } = string.Empty;
@@ -7,4 +8,5 @@ public class GameCreateDto
     public string DetailedDescription { get; set; } = string.Empty;
     public string WebGLPath { get; set; } = string.Empty;
     public string CoverImagePath { get; set; } = string.Empty;
+    public List<uint> FeatureIds { get; set; } = new();
 }
