@@ -5,7 +5,7 @@ using Domain.Entities;
 
 namespace BusinessLayer.Services;
 
-public class GameService : GenericService<Game, GameViewDto, GameCreateDto>, IGameService
+public class GameService : GenericService<Game, GameViewDto, GameCreateDto>
 {
     public GameService(IUnitOfWork unitOfWork, IMapper mapper)
         : base(unitOfWork.GameRepository, unitOfWork, mapper) {}

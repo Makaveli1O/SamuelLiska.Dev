@@ -2,15 +2,16 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
 using BusinessLayer.Services;
+using BusinessLayer.Dto.Game;
 
 namespace MVC.Controllers;
 
 public class GameController : Controller
 {
     private readonly ILogger<GameController> _logger;
-    private readonly IGameService _gameService;
+    private readonly IGenericService<GameViewDto, GameCreateDto> _gameService;
 
-    public GameController(ILogger<GameController> logger, IGameService gameService)
+    public GameController(ILogger<GameController> logger, IGenericService<GameViewDto, GameCreateDto> gameService)
     {
         _logger = logger;
         _gameService = gameService;
