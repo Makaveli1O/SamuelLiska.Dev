@@ -52,7 +52,7 @@
         color: #facc15;
     }
 
-    .technologies span {
+    .features span {
         background: #334155;
         padding: 0.4rem 0.8rem;
         border-radius: 20px;
@@ -107,10 +107,10 @@
 
     <div class="mb-4">
         <h2 class="section-title">Key Systems & Features</h2>
-        <div class="technologies">
-            @foreach (var tech in Model.Features)
+        <div class="features">
+            @foreach (var feature in Model.Features)
             {
-                <span>@tech</span>
+                <span>@feature.Name</span>
             }
         </div>
     </div>
@@ -127,7 +127,7 @@
     }
 
     <div class="text-center">
-        <a href="@Model.WebGLPath" class="play-btn" target="_blank">▶ Play Now</a>
+        <a href="@Model.WebGLPath" class="custom-btn custom-btn-outline" target="_blank">▶ Play Now</a>
     </div>
 
     <a class="back-link" href="/Game">← Back to All Games</a>
