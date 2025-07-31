@@ -9,121 +9,166 @@
     <link rel="stylesheet" href="~/MVC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <style>
-        body {
-            background-color: #0d1117;
-            color: #e5e7eb;
-            font-family: 'Inter', sans-serif;
-        }
+    body {
+        background-color: #0d1117;
+        color: #e5e7eb;
+        font-family: 'Inter', sans-serif;
+    }
 
-        /* NAVBAR */
-        .custom-navbar {
-            background-color: #0f172a;
-            border-bottom: 1px solid #1f2937;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        }
-        a{
-            color: #facc15;
-        }
+    /* NAVBAR */
+    .custom-navbar {
+        background-color: #0f172a;
+        border-bottom: 1px solid #1f2937;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    a{
+        color: #facc15;
+    }
 
-        .navbar-brand {
-            color: #facc15;
-            font-weight: bold;
-            font-size: 1.6rem;
-        }
+    .navbar-brand {
+        color: #facc15;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
 
-        .navbar-brand:hover {
-            color: #eab308;
-        }
+    .navbar-brand:hover {
+        color: #eab308;
+    }
 
-        .nav-link {
-            color: #cbd5e1;
-            margin-left: 1.25rem;
-            font-weight: 500;
-            transition: color 0.3s ease, border-bottom 0.3s ease;
-        }
+    .nav-link {
+        color: #cbd5e1;
+        margin-left: 1.25rem;
+        font-weight: 500;
+        transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
 
-        .nav-link:hover {
-            color: #facc15;
-        }
+    .nav-link:hover {
+        color: #facc15;
+    }
 
-        .nav-link.active {
-            color: #facc15;
-            border-bottom: 2px solid #facc15;
-        }
+    .nav-link.active {
+        color: #facc15;
+        border-bottom: 2px solid #facc15;
+    }
 
-        .navbar-toggler {
-            border: none;
-        }
+    .navbar-toggler {
+        border: none;
+    }
 
-        .navbar-toggler-icon {
-            filter: invert(1);
-        }
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
 
-        .nav-link i {
-            color: #cbd5e1;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+    .nav-link i {
+        color: #cbd5e1;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-        .nav-link:hover i {
-            color: #facc15;
-            transform: translateY(-2px);
-        }
+    .nav-link:hover i {
+        color: #facc15;
+        transform: translateY(-2px);
+    }
 
-        .navbar-collapse {
-            background-color: #0f172a;
-        }
+    .navbar-collapse {
+        background-color: #0f172a;
+    }
 
-        /* FOOTER */
-        .custom-footer {
-            background-color: #0f172a;
-            border-top: 1px solid #1f2937;
-            color: #cbd5e1;
-            padding: 2rem 0;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
+    /* FOOTER */
+    .custom-footer {
+        background-color: #0f172a;
+        border-top: 1px solid #1f2937;
+        color: #cbd5e1;
+        padding: 2rem 0;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+    }
 
-        .custom-footer.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .custom-footer.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        .footer-link {
-            color: #94a3b8;
-            text-decoration: none;
-        }
+    .footer-link {
+        color: #94a3b8;
+        text-decoration: none;
+    }
 
-        .footer-link:hover {
-            color: #facc15;
-        }
+    .footer-link:hover {
+        color: #facc15;
+    }
 
-        .footer-icons a {
-            color: #94a3b8;
-            margin-left: 1.25rem;
-            font-size: 1.25rem;
-        }
+    .footer-icons a {
+        color: #94a3b8;
+        margin-left: 1.25rem;
+        font-size: 1.25rem;
+    }
 
-        .footer-icons a:hover {
-            color: #facc15;
-            transform: translateY(-2px);
-        }
+    .footer-icons a:hover {
+        color: #facc15;
+        transform: translateY(-2px);
+    }
 
-        .footer-icons i {
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+    .footer-icons i {
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
 
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.7s ease-out;
-        }
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s ease-out;
+    }
 
-        .fade-in-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .custom-btn {
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        margin: 0 1rem;
+        transition: all 0.3s ease;
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+        position: relative;
+        z-index: 1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .custom-btn-light {
+        background-color: #facc15;
+        color: #0f0f1a;
+        border: none;
+    }
+
+    .custom-btn-light:hover {
+        background-color: #eab308;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .custom-btn-outline {
+        background-color: transparent;
+        border: 2px solid #facc15;
+        color: #facc15;
+    }
+
+    .custom-btn-outline:hover {
+        background-color: #facc15;
+        color: #0f0f1a;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.3);
+    }
+
+    .custom-buttons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+    }
     </style>
 </head>
 <body>
