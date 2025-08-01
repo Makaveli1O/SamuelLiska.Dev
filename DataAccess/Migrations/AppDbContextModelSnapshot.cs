@@ -71,6 +71,41 @@ namespace DataAccess.Migrations
                         {
                             Id = 2u,
                             Name = "ProceduralGeneration"
+                        },
+                        new
+                        {
+                            Id = 3u,
+                            Name = "PerlinNoise"
+                        },
+                        new
+                        {
+                            Id = 4u,
+                            Name = "SaveSystemJSON"
+                        },
+                        new
+                        {
+                            Id = 5u,
+                            Name = "PathfindingAI"
+                        },
+                        new
+                        {
+                            Id = 6u,
+                            Name = "Chunks"
+                        },
+                        new
+                        {
+                            Id = 7u,
+                            Name = "NavMesh"
+                        },
+                        new
+                        {
+                            Id = 8u,
+                            Name = "AnimationSystem"
+                        },
+                        new
+                        {
+                            Id = 9u,
+                            Name = "WorldGeneration"
                         });
                 });
 
@@ -118,7 +153,7 @@ namespace DataAccess.Migrations
                             Id = 1u,
                             CoverImagePath = "/images/games/brick_breaker_img_cover.jpg",
                             Description = "Control your paddle and destroy all the blocks!",
-                            DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the block and obtain highest score.",
+                            DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the blocks and obtain the highest score.",
                             Slug = "brick-breaker",
                             Title = "Brick Breaker",
                             WebGLPath = "https://play.unity.com/en/games/865b6456-69f2-4610-8c13-06cb84d4357a/brick-breakerwebbuild"
@@ -131,7 +166,7 @@ namespace DataAccess.Migrations
                             DetailedDescription = "The player is thrown into a generated world with the main objective of collecting all missing keys to finish the game. Each key is located in a different biome, and while biomes can repeat, each contains exactly one key. The difficulty varies by biome and its enemies, making each playthrough more variable as the player explores the world.",
                             Slug = "rpg-procedural",
                             Title = "Procedural Rpg",
-                            WebGLPath = "/games/rpg/index.html"
+                            WebGLPath = "https://play.unity.com/en/games/ce0cc483-47a9-4977-af17-0942d6862e83/procedural-rpg"
                         });
                 });
 
@@ -163,6 +198,41 @@ namespace DataAccess.Migrations
                         new
                         {
                             FeaturesId = 2u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 3u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 4u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 5u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 6u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 7u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 8u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 9u,
                             GamesId = 2u
                         });
                 });
