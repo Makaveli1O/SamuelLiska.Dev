@@ -20,11 +20,6 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
-app.MapGet("/games/ProceduralRpg", async context =>
-{
-    context.Response.Redirect("/games/proceduralrpg/index.html");
-});
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -44,7 +39,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 
 app.Run();
