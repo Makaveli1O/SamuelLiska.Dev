@@ -46,7 +46,7 @@ public class AppDbContext : DbContext
             Slug = "brick-breaker",
             Description = "Control your paddle and destroy all the blocks!",
             DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the block and obtain highest score.",
-            WebGLPath = "/games/reflect/index.html",
+            WebGLPath = "https://play.unity.com/en/games/865b6456-69f2-4610-8c13-06cb84d4357a/brick-breakerwebbuild",
             CoverImagePath = "/images/games/brick_breaker_img_cover.jpg"
         };
 
