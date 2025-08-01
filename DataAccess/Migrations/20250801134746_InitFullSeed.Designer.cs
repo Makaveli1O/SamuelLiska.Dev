@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250731065703_AddedFeatureTable")]
-    partial class AddedFeatureTable
+    [Migration("20250801134746_InitFullSeed")]
+    partial class InitFullSeed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,24 +42,11 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Category");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1u,
-                            Name = "Arcade"
-                        },
-                        new
-                        {
-                            Id = 2u,
-                            Name = "Role-Playing Game"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Feature", b =>
@@ -76,6 +63,53 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Features");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1u,
+                            Name = "ObjectPooling"
+                        },
+                        new
+                        {
+                            Id = 2u,
+                            Name = "ProceduralGeneration"
+                        },
+                        new
+                        {
+                            Id = 3u,
+                            Name = "PerlinNoise"
+                        },
+                        new
+                        {
+                            Id = 4u,
+                            Name = "SaveSystemJSON"
+                        },
+                        new
+                        {
+                            Id = 5u,
+                            Name = "PathfindingAI"
+                        },
+                        new
+                        {
+                            Id = 6u,
+                            Name = "Chunks"
+                        },
+                        new
+                        {
+                            Id = 7u,
+                            Name = "NavMesh"
+                        },
+                        new
+                        {
+                            Id = 8u,
+                            Name = "AnimationSystem"
+                        },
+                        new
+                        {
+                            Id = 9u,
+                            Name = "WorldGeneration"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Game", b =>
@@ -122,10 +156,10 @@ namespace DataAccess.Migrations
                             Id = 1u,
                             CoverImagePath = "/images/games/brick_breaker_img_cover.jpg",
                             Description = "Control your paddle and destroy all the blocks!",
-                            DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the block and obtain highest score.",
+                            DetailedDescription = "Brick Breaker is a modern Unity-based arcade game featuring grid-based level design, modular block behaviors (explode, reflect, slow, move). Your job is to destroy all the blocks and obtain the highest score.",
                             Slug = "brick-breaker",
                             Title = "Brick Breaker",
-                            WebGLPath = "/games/reflect/index.html"
+                            WebGLPath = "https://play.unity.com/en/games/865b6456-69f2-4610-8c13-06cb84d4357a/brick-breakerwebbuild"
                         },
                         new
                         {
@@ -135,23 +169,75 @@ namespace DataAccess.Migrations
                             DetailedDescription = "The player is thrown into a generated world with the main objective of collecting all missing keys to finish the game. Each key is located in a different biome, and while biomes can repeat, each contains exactly one key. The difficulty varies by biome and its enemies, making each playthrough more variable as the player explores the world.",
                             Slug = "rpg-procedural",
                             Title = "Procedural Rpg",
-                            WebGLPath = "/games/rpg/index.html"
+                            WebGLPath = "https://play.unity.com/en/games/ce0cc483-47a9-4977-af17-0942d6862e83/procedural-rpg"
                         });
                 });
 
-            modelBuilder.Entity("FeatureGame", b =>
+            modelBuilder.Entity("GameFeature", b =>
                 {
                     b.Property<uint>("FeaturesId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<uint>("GameId")
+                    b.Property<uint>("GamesId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("FeaturesId", "GameId");
+                    b.HasKey("FeaturesId", "GamesId");
 
-                    b.HasIndex("GameId");
+                    b.HasIndex("GamesId");
 
-                    b.ToTable("FeatureGame");
+                    b.ToTable("GameFeature");
+
+                    b.HasData(
+                        new
+                        {
+                            FeaturesId = 1u,
+                            GamesId = 1u
+                        },
+                        new
+                        {
+                            FeaturesId = 1u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 2u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 3u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 4u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 5u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 6u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 7u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 8u,
+                            GamesId = 2u
+                        },
+                        new
+                        {
+                            FeaturesId = 9u,
+                            GamesId = 2u
+                        });
                 });
 
             modelBuilder.Entity("CategoryGame", b =>
@@ -169,7 +255,7 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FeatureGame", b =>
+            modelBuilder.Entity("GameFeature", b =>
                 {
                     b.HasOne("Domain.Entities.Feature", null)
                         .WithMany()
@@ -179,7 +265,7 @@ namespace DataAccess.Migrations
 
                     b.HasOne("Domain.Entities.Game", null)
                         .WithMany()
-                        .HasForeignKey("GameId")
+                        .HasForeignKey("GamesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

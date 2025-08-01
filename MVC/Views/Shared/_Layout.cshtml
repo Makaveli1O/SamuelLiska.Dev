@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Samuel Líška - Software Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="~/images/favicon.svg" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVC.styles.css" asp-append-version="true" />
@@ -169,6 +170,47 @@
         justify-content: center;
         margin-top: 2rem;
     }
+
+    .primary-color-yellow{
+        color: #facc15;
+        background-color: #facc15;
+    }
+
+    .download-cv-btn {
+        position: fixed;
+        bottom: 3rem;
+        right: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+        background-color: #facc15;
+        color: #0f0f1a !important;
+        border: none;
+        text-decoration: none;
+        box-shadow: 0 8px 20px #facc15;
+        transition: all 0.3s ease;
+        z-index: 9999;
+        cursor: pointer;
+        animation: pulse 3s ease-in-out infinite;
+    }
+
+    .download-cv-btn:hover {
+        background-color: ##facc15;
+        transform: scale(1.05);
+        animation-play-state: paused;
+    }
+
+    /* Pulsing animation */
+    @@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 8px #facc15;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px #facc15);
+        transform: scale(1.05);
+    }
+    }
     </style>
 </head>
 <body>
@@ -194,13 +236,10 @@
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">About</a>
                         </li>
                     </ul>
                 </div>
@@ -209,6 +248,7 @@
     </header>
 
     <div class="container">
+        <a href="/files/CV-SWE_ENG.pdf" class="custom-btn download-cv-btn" download>Download CV</a>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

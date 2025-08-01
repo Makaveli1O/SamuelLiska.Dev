@@ -55,6 +55,10 @@
         color: #facc15;
         font-family: 'Inter', sans-serif;
         position: relative;
+        /*SVG*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='35' viewBox='0 0 40 35'%3E%3Cpolygon points='20,0 30,8.66 30,26.33 20,35 10,26.33 10,8.66' fill='none' stroke='%23facc15' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 40px 35px;
     }
 
     .hero-section .overlay {
@@ -204,12 +208,42 @@
     .hero-photo-transparent:hover {
         transform: scale(1.05);
     }
+
+    .pattern-svg {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px rgba(250, 204, 21, 0.3));
+    transition: transform 0.5s ease;
+    }
+
+    .pattern-svg:hover {
+        transform: scale(1.05);
+    }
+
+    /*VERTICAL LINE TITLE*/
+    .hero-section .title-wrapper::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #facc15, #fcd34d);
+        box-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+    }
+    .hero-section .title-wrapper {
+        position: relative;
+        padding-left: 2rem; /* spacing between line and text */
+    }
 </style>
 
 <section class="hero-section text-yellow position-relative text-start">
     <div class="overlay d-flex flex-column justify-content-center align-items-start px-4">
         <img src="~/images/profile2.png" alt="Samuel Líška" class="hero-photo-transparent" />
-        <div>
+        <div class="title-wrapper">
             <h1 class="display-1 fw-bold">SAMUEL</h1>
             <h2 class="display-4 fw-bold bg-yellow text-dark px-3 d-inline-block">LÍŠKA</h2>
         </div>
@@ -243,7 +277,15 @@
                         </p>
                 </div>
                 <div class="image-col">
-                    <!--<img src="/images/code-bg.png" alt="Code Illustration">-->
+                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="pattern-svg">
+                        <defs>
+                            <pattern id="hexPattern" patternUnits="userSpaceOnUse" width="60" height="52">
+                                <polygon points="30,0 60,15 60,45 30,60 0,45 0,15" 
+                                        fill="none" stroke="#facc15" stroke-width="1" opacity="0.2"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#hexPattern)" />
+                    </svg>
                 </div>
             </div>
         </div>
@@ -273,7 +315,32 @@
                     </p>
                 </div>
                 <div class="image-col">
-                    <!--<img src="/images/stack-icons.png" alt="Tech Stack">-->
+                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="pattern-svg">
+                        <g stroke="#facc15" stroke-width="1.2" opacity="0.2">
+                            <!-- Horizontal lines -->
+                            <line x1="50" y1="50" x2="550" y2="50"/>
+                            <line x1="50" y1="150" x2="550" y2="150"/>
+                            <line x1="50" y1="250" x2="550" y2="250"/>
+                            <line x1="50" y1="350" x2="550" y2="350"/>
+                            
+                            <!-- Vertical lines -->
+                            <line x1="100" y1="0" x2="100" y2="400"/>
+                            <line x1="200" y1="0" x2="200" y2="400"/>
+                            <line x1="300" y1="0" x2="300" y2="400"/>
+                            <line x1="400" y1="0" x2="400" y2="400"/>
+                            <line x1="500" y1="0" x2="500" y2="400"/>
+                            
+                            <!-- Nodes (small circles) -->
+                            <circle cx="100" cy="50" r="4"/>
+                            <circle cx="200" cy="150" r="4"/>
+                            <circle cx="300" cy="50" r="4"/>
+                            <circle cx="400" cy="250" r="4"/>
+                            <circle cx="500" cy="150" r="4"/>
+                            <circle cx="200" cy="350" r="4"/>
+                            <circle cx="400" cy="350" r="4"/>
+                            <circle cx="100" cy="250" r="4"/>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -301,7 +368,10 @@
                     </p>
                 </div>
                 <div class="image-col">
-                    <!--<img src="/images/uni-icon.png" alt="Education Illustration">-->
+                    <svg class="pattern-svg" width="280" height="280" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <polygon fill="var(--primary-color-yellow, currentColor)" points="368 350.643 256 413.643 144 350.643 144 284.081 112 266.303 112 369.357 256 450.357 400 369.357 400 266.303 368 284.081 368 350.643" class="primary-color-yellow"/>
+                    <path fill="var(--primary-color-yellow, currentColor)" d="M256,45.977,32,162.125v27.734L256,314.3,448,207.637V296h32V162.125ZM416,188.808l-32,17.777L256,277.7,128,206.585,96,188.808,73.821,176.486,256,82.023l182.179,94.463Z" class="primary-color-yellow"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -321,7 +391,40 @@
                     <a href="/Game" class="hero-btn hero-btn-outline">See My Games</a>
                 </div>
                 <div class="image-col">
-                    <!--<img src="/images/unity-dev.png" alt="Game Development">-->
+                    <!-- License: PD. Made by Icooon Mono: https://icooon-mono.com/ -->
+                    <svg class="pattern-svg" height="280" width="280" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 512 512"  xml:space="preserve">
+                    <style type="text/css">
+                        .st0{fill:#facc15;}
+                    </style>
+                    <g>
+                        <path class="st0" d="M389.488,226.899H122.512C54.854,226.899,0,281.746,0,349.412c0,67.658,54.854,122.512,122.512,122.512
+                            c42.653,0,80.199-21.812,102.135-54.854h62.706c21.936,33.042,59.49,54.854,102.135,54.854C457.154,471.924,512,417.07,512,349.412
+                            C512,281.746,457.154,226.899,389.488,226.899z M389.488,440.332c-30.535,0-58.881-15.226-75.818-40.74l-9.372-14.115h-16.945
+                            h-62.706h-16.945l-9.371,14.115c-16.938,25.514-45.282,40.74-75.819,40.74c-50.134,0-90.92-40.786-90.92-90.92
+                            c0-50.134,40.786-90.921,90.92-90.921h266.976c50.134,0,90.92,40.786,90.92,90.921
+                            C480.408,399.545,439.622,440.332,389.488,440.332z"/>
+                        <path class="st0" d="M268.927,110.897c0-2.46,0.486-4.72,1.366-6.803c1.311-3.116,3.548-5.8,6.332-7.69
+                            c2.8-1.89,6.085-2.97,9.757-2.97c2.437,0,4.705,0.494,6.788,1.373c3.116,1.311,5.799,3.533,7.689,6.333
+                            c1.882,2.8,2.97,6.085,2.97,9.756c0,5.893,1.203,11.593,3.394,16.752c3.278,7.744,8.716,14.292,15.58,18.928
+                            c6.849,4.643,15.21,7.374,24.08,7.366c5.916,0,11.616-1.211,16.768-3.394c7.728-3.278,14.284-8.716,18.92-15.58
+                            c4.643-6.857,7.366-15.21,7.366-24.072v-70.82h-25.607v70.82c0,2.437-0.478,4.705-1.357,6.78c-1.319,3.124-3.556,5.808-6.333,7.69
+                            c-2.808,1.881-6.093,2.969-9.757,2.969c-2.436,0-4.705-0.486-6.787-1.365c-3.116-1.311-5.8-3.548-7.682-6.333
+                            c-1.889-2.8-2.977-6.1-2.992-9.741c0.016-5.924-1.188-11.616-3.378-16.768c-3.279-7.744-8.716-14.292-15.58-18.928
+                            c-6.864-4.651-15.21-7.374-24.08-7.366c-5.909-0.008-11.608,1.203-16.768,3.394c-7.743,3.263-14.292,8.716-18.927,15.58
+                            c-4.644,6.857-7.359,15.21-7.359,24.088v104.71h25.599V110.897z"/>
+                        <polygon class="st0" points="138.363,293.338 105.452,293.338 105.452,331.124 67.658,331.124 67.658,364.051 105.452,364.051 
+                            105.452,401.829 138.363,401.829 138.363,364.051 176.156,364.051 176.156,331.124 138.363,331.124 	"/>
+                        <path class="st0" d="M375.126,289.698c-7.937,7.929-7.921,20.794,0,28.723c7.936,7.929,20.794,7.929,28.716,0
+                            c7.936-7.929,7.936-20.794,0-28.723C395.92,281.769,383.063,281.769,375.126,289.698z"/>
+                        <path class="st0" d="M329.774,335.05c-7.929,7.929-7.929,20.794,0,28.723c7.937,7.929,20.794,7.929,28.723,0
+                            c7.93-7.929,7.93-20.794,0-28.731C350.568,327.121,337.711,327.121,329.774,335.05z"/>
+                        <path class="st0" d="M375.126,380.402c-7.937,7.929-7.937,20.786,0,28.715c7.936,7.929,20.794,7.929,28.716,0.008
+                            c7.936-7.937,7.936-20.794,0-28.739C395.92,372.457,383.063,372.473,375.126,380.402z"/>
+                        <path class="st0" d="M449.193,335.05c-7.921-7.929-20.786-7.929-28.723,0c-7.937,7.929-7.937,20.794,0,28.723
+                            c7.937,7.929,20.802,7.929,28.723,0C457.123,355.844,457.123,342.979,449.193,335.05z"/>
+                    </g>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -340,9 +443,67 @@
                     </p>
                 </div>
                 <div class="image-col">
-                    <!--<img src="/images/clean-code.png" alt="Traits Illustration">-->
+                    <svg class="pattern-svg" fill="none" width="280" height="280" viewBox="0 0 64 64" id="Layer_1_1_" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                    <g stroke="#facc15">
+
+                    <path d="M60,3h-9.184C50.402,1.839,49.302,1,48,1H34c-1.302,0-2.402,0.839-2.816,2H22c-1.654,0-3,1.346-3,3v13h-3.406   c-1.217,0-2.418,0.319-3.474,0.923L6.734,23H1v18h6.697l4.236,2.824C13.087,44.594,14.43,45,15.816,45H19v15c0,1.654,1.346,3,3,3   h38c1.654,0,3-1.346,3-3V6C63,4.346,61.654,3,60,3z M25,27h2c2.206,0,4-1.794,4-4s-1.794-4-4-4h-2V9h6.184   c0.414,1.161,1.514,2,2.816,2h14c1.302,0,2.402-0.839,2.816-2H57v48H25V27z M33,4c0-0.552,0.448-1,1-1h14c0.552,0,1,0.448,1,1v4   c0,0.552-0.448,1-1,1H34c-0.552,0-1-0.448-1-1V4z M21,6c0-0.552,0.448-1,1-1h9v2h-8v12h-2V6z M15.816,43   c-0.99,0-1.949-0.29-2.773-0.84L8.303,39H3V25h4.266l5.847-3.341C13.867,21.228,14.725,21,15.594,21H27c1.103,0,2,0.897,2,2   s-0.897,2-2,2H15v1c0,2.757-2.243,5-5,5v2c3.521,0,6.442-2.612,6.929-6H19v16H15.816z M61,60c0,0.552-0.448,1-1,1H22   c-0.552,0-1-0.448-1-1V27h2v32h36V7h-8V5h9c0.552,0,1,0.448,1,1V60z"/>
+
+                    <rect height="2" width="2" x="35" y="5"/>
+
+                    <rect height="2" width="2" x="45" y="5"/>
+
+                    <path d="M48.373,47.209l-3.375-0.964l-0.001-0.507C46.81,44.472,48,42.374,48,40v-2c0-3.859-3.141-7-7-7s-7,3.141-7,7v2   c0,2.372,1.189,4.469,3,5.736v0.51l-3.374,0.963C31.491,47.82,30,49.797,30,52.018V55h22v-2.982   C52,49.797,50.509,47.82,48.373,47.209z M36,40v-2c0-2.757,2.243-5,5-5s5,2.243,5,5v2c0,2.757-2.243,5-5,5S36,42.757,36,40z    M42.965,46.714L41,49.333l-1.965-2.619C39.659,46.897,40.318,47,41,47S42.341,46.897,42.965,46.714z M50,53H32v-0.982   c0-1.332,0.895-2.519,2.176-2.885l3.437-0.982L41,52.667l3.387-4.516l3.437,0.982C49.105,49.499,50,50.686,50,52.018V53z"/>
+
+                    <rect height="2" width="2" x="27" y="13"/>
+
+                    <rect height="2" width="24" x="31" y="13"/>
+
+                    <rect height="2" width="22" x="33" y="17"/>
+
+                    <rect height="2" width="22" x="33" y="21"/>
+
+                    <rect height="2" width="2" x="53" y="25"/>
+
+                    <rect height="2" width="18" x="33" y="25"/>
+
+                    </g>
+
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
+
+<section class="fade-in-section bg-darker">
+    <div class="angled-divider bottom-clip"></div>
+    <div class="section-content">
+        <div class="section-alt even">
+            <div class="text-col">
+                <h2 class="display-5 fw-bold mb-4 text-primary icon-title">
+                    <i class="bi bi-diagram-3 section-title-highlight"></i>Software Engineering Principles
+                </h2>
+                <p class="fs-5">
+                    I design and implement software guided by proven principles and methodologies
+                    that ensure long-term maintainability, scalability, and clarity of the codebase.
+                    My work consistently follows:
+                </p>
+                <ul class="fs-5">
+                    <li><strong>Domain-Driven Design (DDD):</strong> Structuring code around the business domain, using bounded contexts, aggregates, and clear separation of concerns.</li>
+                    <li><strong>SOLID Principles:</strong> Writing modular, testable, and maintainable code that follows object-oriented best practices.</li>
+                    <li><strong>DRY (Don't Repeat Yourself):</strong> Eliminating duplication by extracting reusable components and logic.</li>
+                    <li><strong>Clean & Maintainable Architecture:</strong> Prioritizing clarity and long-term sustainability over quick fixes.</li>
+                </ul>
+                <p class="mt-3 fs-5">
+                    Most of my professional work involves refactoring and extending legacy systems, 
+                    applying these principles to gradually improve architecture and deliver higher-quality software.
+                </p>
+            </div>
+            <div class="image-col">
+                <!-- License: PD. Made by tablecheck: https://github.com/tablecheck/tablecheck-icons -->
+                <svg class="pattern-svg" stroke="#facc15" width="280" height="280" viewBox="-32 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#facc15" d="M9.625 157.797C6.125 156.046 3.64583 154.15 2.1875 152.108C0.729167 150.066 0 147.294 0 143.793C0 140.292 0.729167 137.521 2.1875 135.478C3.64583 133.436 6.125 131.54 9.625 129.789L195.417 37.0152C203 33.3198 212.528 31.6666 224 32.0556C235.472 31.6666 245 33.3198 252.583 37.0152L438.375 129.789C441.875 131.54 444.354 133.436 445.812 135.478C447.271 137.521 448 140.292 448 143.793C448 147.294 447.271 150.066 445.812 152.108C444.354 154.15 441.875 156.046 438.375 157.797L252.583 250.571C245 254.266 235.472 255.919 224 255.531C212.528 255.919 203 254.266 195.417 250.571L9.625 157.797ZM9.625 382.439C6.125 380.688 3.64583 378.792 2.1875 376.75C0.729167 374.707 0 371.936 0 368.435C0 364.934 0.729167 362.162 2.1875 360.12C3.64583 358.078 6.125 356.182 9.625 354.431L56.2917 331.092L195.417 400.527C203.194 404.222 212.722 405.778 224 405.195C235.278 405.778 244.806 404.222 252.583 400.527L391.708 331.092L438.375 354.431C441.875 356.182 444.354 358.078 445.812 360.12C447.271 362.162 448 364.934 448 368.435C448 371.936 447.271 374.707 445.812 376.75C444.354 378.792 441.875 380.688 438.375 382.439L252.583 475.213C244.806 478.908 235.278 480.464 224 479.881C212.722 480.464 203.194 478.908 195.417 475.213L9.625 382.439ZM9.625 270.409C6.125 268.659 3.64583 266.763 2.1875 264.72C0.729167 262.678 0 259.907 0 256.406C0 252.905 0.729167 250.133 2.1875 248.091C3.64583 246.049 6.125 244.153 9.625 242.402L56.2917 219.063L195.417 288.497C203.194 292.193 212.722 293.749 224 293.165C235.278 293.749 244.806 292.193 252.583 288.497L391.708 219.063L438.375 242.402C441.875 244.153 444.354 246.049 445.812 248.091C447.271 250.133 448 252.905 448 256.406C448 259.907 447.271 262.678 445.812 264.72C444.354 266.763 441.875 268.659 438.375 270.409L252.583 363.184C244.806 366.879 235.278 368.435 224 367.851C212.722 368.435 203.194 366.879 195.417 363.184L9.625 270.409Z"></path></svg>
+            </div>
+        </div>
+    </div>
+</section>
 </div>
