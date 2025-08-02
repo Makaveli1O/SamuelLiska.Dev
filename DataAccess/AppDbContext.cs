@@ -61,7 +61,7 @@ public class AppDbContext : DbContext
             Slug = "rpg-procedural",
             Description = "Fight monsters and obtain orbs to win!",
             DetailedDescription = "The player is thrown into a generated world with the main objective of collecting all missing keys to finish the game. Each key is located in a different biome, and while biomes can repeat, each contains exactly one key. The difficulty varies by biome and its enemies, making each playthrough more variable as the player explores the world.",
-            WebGLPath = "https://play.unity.com/en/games/ce0cc483-47a9-4977-af17-0942d6862e83/procedural-rpg",
+            WebGLPath = "https://play.unity.com/en/games/d19c9865-c548-4c03-91ab-bf96491eeefc/procedural-rpg",
             CoverImagePath = "/images/games/rpg_img_cover.jpg"
         };
 
