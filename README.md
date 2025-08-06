@@ -8,6 +8,12 @@ It serves as a showcase for Unity WebGL games, SWE skills and includes features 
 - Unity WebGL games hosted under `/games/`
 - Deployable to Windows hosting providers (IIS / SmarterASP) or Azure
 
+## Deployed
+
+[Azure deployment](https://samuelliskadev-dzhmagdydsf5g2dx.canadacentral-01.azurewebsites.net/)
+
+[samuelliskadev.com (missing cert)](http://http://samuelliskadev.com/)
+
 ---
 
 ## 📂 Project Structure
