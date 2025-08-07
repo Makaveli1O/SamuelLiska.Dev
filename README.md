@@ -6,7 +6,7 @@ It serves as a showcase for Unity WebGL games, SWE skills and includes features 
 - Game catalog with categories and features
 - Local SQLite database with seeding
 - Unity WebGL games hosted under `/games/`
-- Deployable to Windows hosting providers (IIS / SmarterASP) or Azure
+- Deployable to Windows hosting providers or Azure
 
 ## Deployed
 
