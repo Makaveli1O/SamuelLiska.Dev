@@ -40,11 +40,8 @@ SamuelLiska.Dev/
   - Games can be played directly in the browser
   - Supports Brotli / Gzip compression
 - **EF Core with Seeding**
-  - Automatically seeds sample games, features, and relationships
+  - Automatically seeds sample games, features, and relationshipsF
   - Uses **many-to-many** join tables: `CategoryGame`, `GameFeature`
-- **Deployable Anywhere**
-  - Supports IIS (Windows Hosting)
-  - Azure App Service or Azure Static Hosting
 
 ---
 
@@ -84,7 +81,7 @@ SamuelLiska.Dev/
 
 ## 🌐 Deployment
 
-### **IIS / SmarterASP (Windows Hosting)**
+### **Puhlishing**
 
 1. **Publish the project**
    ```bash
